@@ -15,7 +15,7 @@
     "develop": "webpack --watch",
     "build": "webpack",
     "build-prod": "webpack --env mode='production'",
-    "start": "webpack & node dist/index.js"
+    "start": "npm run build & node dist/index.js"
   },
   "author": "Ravgeet Dhillon <ravgeetdhillon@gmail.com>",
   "license": "MIT",
@@ -24,7 +24,11 @@
     "dotenv": "^10.0.0",
     "github-api": "^3.4.0",
     "node-fetch": "^3.3.0",
-    "qs": "^6.11.0"
+    "notion-to-md": "^2.5.5",
+    "octokit": "^2.0.10",
+    "puppeteer": "^19.3.0",
+    "qs": "^6.11.0",
+    "webpack-node-externals": "^3.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.17.8",

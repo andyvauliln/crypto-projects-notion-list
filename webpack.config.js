@@ -1,5 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
+const nodeExternals = require('webpack-node-externals');
 
 const getSrcPath = (filePath) => {
   const src = path.resolve(__dirname, 'src');
@@ -35,6 +36,7 @@ module.exports = (env) => {
     watchOptions: {
       ignored: ['**/dist', '**/node_modules'],
     },
+    externals: [nodeExternals()],
     module: {
       rules: [
         {

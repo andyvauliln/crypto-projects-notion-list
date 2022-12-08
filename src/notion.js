@@ -1,142 +1,313 @@
-// import dotenv from 'dotenv';
-// import { Client, LogLevel } from '@notionhq/client';
+import dotenv from 'dotenv';
+import { Client, LogLevel } from '@notionhq/client';
+import { NotionToMarkdown } from 'notion-to-md';
 
-// dotenv.config();
+dotenv.config();
 
-// const {
-//   NOTION_API_TOKEN,
-//   NOTION_TOKENS_DATABASE_ID,
-//   NOTION_GITHUB_DATABASE_ID,
-//   CI,
-// } = process.env;
+const {
+  NOTION_API_TOKEN,
+  NOTION_TOKENS_DATABASE_ID,
+  NOTION_GITHUB_DATABASE_ID,
+} = process.env;
 
-// const logLevel = CI ? LogLevel.INFO : LogLevel.DEBUG;
+const notion = new Client({
+  auth: NOTION_API_TOKEN,
+});
 
-// export async function getTokensIdFromNotion() {
-//   const notion = new Client({
-//     auth: NOTION_API_TOKEN,
-//     logLevel,
-//   });
+export async function addTokenToNotion(notionItem) {
+  console.log(notionItem.id, '******************************************');
 
-//   let response;
-//   try {
-//     response = await notion.databases.query({
-//       database_id: NOTION_TOKENS_DATABASE_ID,
-//       // filter: {
-//       //   or: [
-//       //     {
-//       //       property: 'Enabled',
-//       //       checkbox: {
-//       //         equals: true,
-//       //       },
-//       //     },
-//       //   ],
-//       // },
-//     });
-//   } catch (err) {
-//     console.error(err);
-//     return [];
-//   }
+  try {
+    const tags1 = notionItem['tag-names'] ? notionItem['tag-names'] : [];
+    const tags2 = notionItem.self_reported_tags
+      ? notionItem.self_reported_tags
+      : [];
+    const tags = [...new Set([...tags1, ...tags2])].map((tag) => {
+      return { name: tag };
+    });
+    await notion.pages.create({
+      parent: {
+        database_id: NOTION_TOKENS_DATABASE_ID,
+      },
+      icon: {
+        external: {
+          url: notionItem.logo,
+        },
+      },
+      //   cover: {
+      //     type: 'external',
+      //     external: {
+      //       url: image,
+      //     },
+      //   },
+      properties: {
+        Id: {
+          number: notionItem.id,
+        },
+        Name: {
+          title: [
+            {
+              text: {
+                content: `${notionItem.name} (${notionItem.symbol})`,
+              },
+            },
+          ],
+        },
+        Description: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.description || '',
+              },
+            },
+          ],
+        },
+        Tags: {
+          multi_select: tags,
+        },
+        Category: {
+          select: {
+            name: notionItem.category
+              ? capitalizeFirstLetter(notionItem.category)
+              : '',
+          },
+        },
+        Platform: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.platform
+                  ? `${notionItem.platform.name} (${notionItem.platform.symbol})`
+                  : 'No Platform',
+              },
+            },
+          ],
+        },
+        Website: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.website.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Documentation: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.technical_doc.join(', ') || '',
+              },
+            },
+          ],
+        },
+        SourceCode: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.source_code.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Twitter: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.twitter.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Reddit: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.reddit.join(', ') || '',
+              },
+            },
+          ],
+        },
+        MessageBoard: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.message_board.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Announcement: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.announcement.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Сhat: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.chat.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Explorer: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.urls.explorer.join(', ') || '',
+              },
+            },
+          ],
+        },
+        Slug: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: notionItem.slug,
+              },
+            },
+          ],
+        },
+        DateLanched: {
+          date: {
+            start: notionItem.date_lanched || notionItem.date_added,
+          },
+        },
+        // children: [
+        //   {
+        //     object: 'block',
+        //     type: 'embed',
+        //     embed: {
+        //       url: link,
+        //     },
+        //   },
+        // ],
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  console.log('**********added*********');
+}
 
-//   const tokenIds = response.results.map((item) => ({
-//     id: item.properties.Id,
-//     name: item.properties.Name,
-//     github: item.properties.SourceCode,
-//   }));
+export async function getLastToken() {
+  let response;
+  try {
+    response = await notion.databases.query({
+      database_id: NOTION_TOKENS_DATABASE_ID,
+      sorts: [
+        {
+          property: 'Id',
+          direction: 'descending',
+        },
+      ],
+      page_size: 1,
+      // filter: {
+      //   or: [
+      //     {
+      //       property: 'Enabled',
+      //       checkbox: {
+      //         equals: true,
+      //       },
+      //     },
+      //   ],
+      // },
+    });
+  } catch (err) {
+    console.error(err);
+    return response;
+  }
 
-//   return tokenIds;
-// }
+  //   const tokenIds = response.results.map((item) => ({
+  //     id: item.properties.Id.number,
+  //   }));
 
-// export async function addTokenToNotion(notionItem) {
-//   const {
-//     title,
-//     link,
-//     categories,
-//     creator,
-//     content,
-//     contentSnippet,
-//     description,
-//     image,
-//   } = notionItem;
+  return response.results[0].properties.Id.number;
+}
 
-//   const notion = new Client({
-//     auth: NOTION_API_TOKEN,
-//     logLevel,
-//   });
+export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
+  let response;
+  try {
+    response = await notion.databases.query({
+      database_id: NOTION_TOKENS_DATABASE_ID,
+      page_size: limit,
+      filter: {
+        and: [
+          {
+            property: 'Id',
+            number: {
+              greater_than: startId,
+            },
+          },
+          {
+            property: 'Id',
+            number: {
+              less_than: limit,
+            },
+          },
+          {
+            property: 'SourceCode',
+            rich_text: {
+              is_not_empty: true,
+            },
+          },
+        ],
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+  //7291,6845, 6831,6780, 7509, 7546
+  //
+  //   const tokenIds = response.results.map((item) => ({
+  //     id: item.properties.Id.number,
+  //   }));
 
-//   try {
-//     await notion.pages.create({
-//       parent: {
-//         database_id: NOTION_TOKENS_DATABASE_ID,
-//       },
-//       cover: {
-//         type: 'external',
-//         external: {
-//           url: image,
-//         },
-//       },
-//       properties: {
-//         Title: {
-//           title: [
-//             {
-//               text: {
-//                 content: title,
-//               },
-//             },
-//           ],
-//         },
-//         Link: {
-//           url: link,
-//         },
-//         Categories: {
-//           multi_select: categories.map((r) => ({ name: r })),
-//         },
-//         Creator: {
-//           rich_text: [
-//             {
-//               type: 'text',
-//               text: {
-//                 content: creator,
-//               },
-//             },
-//           ],
-//         },
-//         ContentSnippet: {
-//           rich_text: [
-//             {
-//               type: 'text',
-//               text: {
-//                 content: contentSnippet.substring(0, 1000),
-//               },
-//             },
-//           ],
-//         },
-//         Description: {
-//           rich_text: [
-//             {
-//               type: 'text',
-//               text: {
-//                 content: description ? JSON.stringify(description) : '',
-//               },
-//             },
-//           ],
-//         },
-//       },
-//       children: [
-//         {
-//           object: 'block',
-//           type: 'embed',
-//           embed: {
-//             url: link,
-//           },
-//         },
-//       ],
-//     });
-//   } catch (err) {
-//     console.error(err);
-//   }
-// }
+  return response;
+}
 
+const n2m = new NotionToMarkdown({ notionClient: notion });
+
+async function addContent(pageId) {
+  console.log(pageId);
+}
+
+async function addSitePicture(id) {
+  try {
+    const response = await notion.pages.update({
+      page_id: id,
+      properties: {
+        children: {
+          checkbox: true,
+        },
+      },
+    });
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+//capitalize first letter
+function capitalizeFirstLetter(string) {
+  return string.charAt(0).toUpperCase() + string.slice(1);
+}
 // // format:
 // // block_full_width: false
 // // block_height: 930

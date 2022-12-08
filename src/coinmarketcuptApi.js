@@ -79,9 +79,8 @@ export default class CoinMarketCap {
    * client.getMetadata({symbol: 'BTC,ETH'}).then(console.log).catch(console.error)
    * client.getMetadata({symbol: ['BTC', 'ETH']}).then(console.log).catch(console.error)
    */
-  getMetadata(args = {}) {
-    return createRequest({
-      fetcher: this.fetcher,
+  async getMetadata(args = {}) {
+    return await createRequest({
       url: `${this.url}/cryptocurrency/info`,
       config: this.config,
       query: sanitizeIdAndSymbol(args.id, args.symbol),
@@ -109,10 +108,10 @@ const sanitizeIdAndSymbol = (id, symbol) => {
   return { id, symbol };
 };
 
-const createRequest = (args = {}) => {
+const createRequest = async (args = {}) => {
   const { url, config, query } = args;
 
-  return fetch(`${url}${query ? `?${qs.stringify(query)}` : ''}`, config).then(
-    (res) => res.json()
-  );
+  return (
+    await fetch(`${url}${query ? `?${qs.stringify(query)}` : ''}`, config)
+  ).json();
 };
