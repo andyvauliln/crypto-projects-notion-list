@@ -1,7 +1,8 @@
-import dotenv from 'dotenv';
 import { Client, LogLevel } from '@notionhq/client';
-import { markdownToBlocks, markdownToRichText } from '@tryfabric/martian';
+import dotenv from 'dotenv';
+import fs from 'fs/promises';
 import util from 'util';
+import { getDescriptions } from './NotionParser';
 
 dotenv.config();
 
@@ -50,7 +51,9 @@ export async function addTokenToNotion(notionItem) {
             {
               type: 'text',
               text: {
-                content: notionItem.description || '',
+                content: notionItem.description
+                  ? notionItem.description.slice(0, 2000)
+                  : '',
               },
             },
           ],
@@ -235,17 +238,20 @@ export async function getLastToken() {
 }
 
 export async function saveRepsoitoryToNotion(token, repository) {
-  // console.dir(
-  //   '*************************',
-  //   markdownToBlocks(repository.readme),
-  //   { depth: null }
-  // );
-  // console.log(
-  //   util.inspect(markdownToBlocks(repository.readme)[0], { depth: 6 })
-  // );
-  //console.log(repository, repository.files);
   try {
-    const readme = markdownToBlocks(repository.readme);
+    if (repository.name !== 'copay-lite') {
+      return;
+    }
+    const readmeBlocks = generateReadme(repository.readme);
+    try {
+      await fs.writeFile(
+        `/Users/andreivaulin/Projects/crypto-projects-notion-list/${repository.name}.json`,
+        JSON.stringify(readmeBlocks)
+      );
+      // file written successfully
+    } catch (err) {
+      console.error(err);
+    }
 
     const packageDescription = getPackageDesriptionBlock(
       repository.pakageDescriptions
@@ -294,16 +300,21 @@ export async function saveRepsoitoryToNotion(token, repository) {
             {
               type: 'text',
               text: {
-                content: repository.description,
+                content: repository.description
+                  ? repository.description.slice(0, 2000)
+                  : '',
               },
             },
           ],
         },
         Packages: {
-          multi_select: repository.packages.map((r) => {
-            return { name: r };
-          }),
+          multi_select: repository.packages
+            .map((r) => {
+              return { name: r };
+            })
+            .slice(0, 100),
         },
+        Language: { select: { name: repository.language } },
         HomePage: {
           url: repository.homepage || null,
         },
@@ -328,38 +339,188 @@ export async function saveRepsoitoryToNotion(token, repository) {
           },
         },
       },
-      children: [packageDescription, ...repository.files.blocks, ...readme],
+      children: [
+        packageDescription,
+        ...repository.files.blocks,
+        ...readmeBlocks,
+      ],
     };
-    notionObj.children = notionObj.children.slice(0, 100);
-    console.log(notionObj.children.length, 'children length');
-
-    await notion.pages.create(notionObj);
+    //notionObj.children = notionObj.children.slice(0, 100);
+    //console.log(notionObj.children.length, 'children length');
+    // notionObj.children = [
+    //   {
+    //     toggle: {
+    //       rich_text: [
+    //         {
+    //           type: 'text',
+    //           text: { content: 'Support', link: null },
+    //           annotations: { bold: true },
+    //         },
+    //       ],
+    //       color: 'default',
+    //       children: [
+    //         {
+    //           object: 'block',
+    //           type: 'paragraph',
+    //           paragraph: {
+    //             rich_text: [
+    //               {
+    //                 type: 'text',
+    //                 annotations: {
+    //                   bold: false,
+    //                   strikethrough: false,
+    //                   underline: false,
+    //                   italic: false,
+    //                   code: false,
+    //                   color: 'default',
+    //                 },
+    //                 text: { content: 'Please see ' },
+    //               },
+    //               {
+    //                 type: 'text',
+    //                 annotations: {
+    //                   bold: false,
+    //                   strikethrough: false,
+    //                   underline: false,
+    //                   italic: false,
+    //                   code: false,
+    //                   color: 'default',
+    //                 },
+    //                 text: {
+    //                   content: 'Support requests',
+    //                   link: { type: 'url', url: 'CONTRIBUTING.md#support' },
+    //                 },
+    //               },
+    //             ],
+    //           },
+    //         },
+    //       ],
+    //     },
+    //   },
+    // ];
+    const createdPage = await notion.pages.create(notionObj);
+    // console.log(createdPage, 'createdPage');
     console.log('**********Saved*********', repository.name);
   } catch (err) {
     console.error(err);
   }
 }
 
+function generateReadme(repository) {
+  const blocks = markdownToBlocks(repository);
+  const indexes = [];
+  blocks.forEach((item, index) => {
+    if (item.type === 'heading_2') {
+      indexes.push(index);
+    }
+  });
+  let chunked_arr = [];
+  if (indexes.length > 0 && indexes[0] < blocks.length) {
+    chunked_arr = [...chunked_arr, ...blocks.slice(0, indexes[0])];
+    for (let i = 0; i < indexes.length; i++) {
+      const size = indexes[i + 1] || blocks.length;
+
+      const arr = blocks.slice(indexes[i] + 1, size);
+
+      if (arr.length) {
+        if (arr.length > 100) {
+          const subArr = [];
+          for (let j = 0; j < arr.length; j += 100) {
+            console.log('***************************************************');
+            console.dir(arr.slice(j, j + 100), { depth: null });
+            subArr.push({
+              paragraph: {
+                rich_text: [
+                  {
+                    type: 'text',
+                    text: {
+                      content: '',
+                      link: null,
+                    },
+                  },
+                ],
+                color: 'default',
+                children: arr.slice(j, j + 100),
+              },
+            });
+          }
+          chunked_arr.push({
+            toggle: {
+              rich_text: [
+                {
+                  type: 'text',
+                  text: {
+                    content:
+                      blocks[indexes[i]].heading_2.rich_text[0].text.content,
+                    link: null,
+                  },
+                  annotations: {
+                    bold: true,
+                  },
+                },
+              ],
+              color: 'default',
+              children: subArr,
+            },
+          });
+        } else {
+          chunked_arr.push({
+            toggle: {
+              rich_text: [
+                {
+                  type: 'text',
+                  text: {
+                    content:
+                      blocks[indexes[i]].heading_2.rich_text[0].text.content,
+                    link: null,
+                  },
+                  annotations: {
+                    bold: true,
+                  },
+                },
+              ],
+              color: 'default',
+              children: arr,
+            },
+          });
+        }
+      }
+    }
+  } else {
+    chunked_arr = blocks.slice(0, 100);
+  }
+  //console.dir(chunked_arr, { depth: null });
+  return chunked_arr;
+}
+
 function getPackageDesriptionBlock(packageObj) {
-  const pd = Object.entries(packageObj)
-    .map(([key, value]) => {
-      return `${key}: "${value}"`;
-    })
-    .join('\n');
+  const pd = Object.entries(packageObj).map(([key, value]) => {
+    return `${key}: "${value}"`;
+  });
   return {
     type: 'code',
     code: {
-      rich_text: [
-        {
+      rich_text: chunkContent(pd, 10).map((item) => {
+        return {
           type: 'text',
           text: {
-            content: pd,
+            content: item.join('\n'),
           },
-        },
-      ],
+        };
+      }),
       language: 'javascript',
     },
   };
+}
+
+function chunkContent(files, size) {
+  const chunked_arr = [];
+  let index = 0;
+  while (index < files.length) {
+    chunked_arr.push(files.slice(index, size + index));
+    index += size;
+  }
+  return chunked_arr;
 }
 
 export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {

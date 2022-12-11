@@ -1,16 +1,16 @@
+import puppeteer from 'puppeteer-core';
 import { getTokens } from './coinmarketcup';
+import {
+  getGihubRepos,
+  getMarkdownFromRepo,
+  getPackageJsonFromRepo,
+} from './github';
 import {
   addTokenToNotion,
   getLastToken,
   getNotionTokensWithSourceCode,
   saveRepsoitoryToNotion,
 } from './notion';
-import {
-  getGihubRepos,
-  getPackageJsonFromRepo,
-  getMarkdownFromRepo,
-} from './github';
-import puppeteer from 'puppeteer-core';
 
 const requestLimitPerDay = 333 - 90;
 async function migrateFromCoinmarketCap() {

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { getDescriptions } from 'npm-description';
 import { Octokit } from 'octokit';
+import { getDescriptions } from './NotionParser';
 
 dotenv.config();
 
@@ -10,7 +10,10 @@ const octokit = new Octokit({
   auth: GITHUB_API_TOKEN,
 });
 
-export async function getGihubRepos(githubLink, laguages = 'language:javascript') {
+export async function getGihubRepos(
+  githubLink,
+  laguages = 'language:javascript'
+) {
   const owner = githubLink.split('/')[3];
   const resp = await octokit.rest.search.repos({
     q: `${laguages}+user:${owner}+fork:true`,
@@ -127,26 +130,35 @@ function generateNotionBlockForFiles(files) {
           },
         ],
         color: 'default',
-        children: [
-          {
+        children: chunkContent(value.files, 30).map((files) => {
+          return {
             type: 'code',
             code: {
               rich_text: [
                 {
                   type: 'text',
                   text: {
-                    content: `{\n  path: ${value.files.join('\n  path: ')}\n}`,
+                    content: `  path: "${files.join('\n  path: ')}"`,
                   },
                 },
               ],
               language: 'javascript',
             },
-          },
-        ],
+          };
+        }),
       },
     });
   });
   return { totalJsFiles, totalFiles, blocks };
+}
+function chunkContent(files, size) {
+  const chunked_arr = [];
+  let index = 0;
+  while (index < files.length) {
+    chunked_arr.push(files.slice(index, size + index));
+    index += size;
+  }
+  return chunked_arr;
 }
 
 //function to calculate same values in array
