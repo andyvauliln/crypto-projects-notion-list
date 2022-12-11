@@ -21,11 +21,15 @@
   "license": "MIT",
   "dependencies": {
     "@notionhq/client": "^0.4.9",
+    "@tryfabric/martian": "^1.2.4",
+    "description": "^0.0.4",
     "dotenv": "^10.0.0",
     "github-api": "^3.4.0",
     "node-fetch": "^3.3.0",
     "notion-to-md": "^2.5.5",
+    "npm-description": "^1.0.2",
     "octokit": "^2.0.10",
+    "package-info": "^5.0.6",
     "puppeteer": "^19.3.0",
     "qs": "^6.11.0",
     "webpack-node-externals": "^3.0.0"

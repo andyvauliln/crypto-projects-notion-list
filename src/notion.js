@@ -1,14 +1,12 @@
 import dotenv from 'dotenv';
 import { Client, LogLevel } from '@notionhq/client';
-import { NotionToMarkdown } from 'notion-to-md';
+import { markdownToBlocks, markdownToRichText } from '@tryfabric/martian';
+import util from 'util';
 
 dotenv.config();
 
-const {
-  NOTION_API_TOKEN,
-  NOTION_TOKENS_DATABASE_ID,
-  NOTION_GITHUB_DATABASE_ID,
-} = process.env;
+const { NOTION_API_TOKEN, NOTION_TOKENS_DATABASE_ID, NOTION_JS_DATABASE_ID } =
+  process.env;
 
 const notion = new Client({
   auth: NOTION_API_TOKEN,
@@ -34,12 +32,6 @@ export async function addTokenToNotion(notionItem) {
           url: notionItem.logo,
         },
       },
-      //   cover: {
-      //     type: 'external',
-      //     external: {
-      //       url: image,
-      //     },
-      //   },
       properties: {
         Id: {
           number: notionItem.id,
@@ -242,6 +234,134 @@ export async function getLastToken() {
   return response.results[0].properties.Id.number;
 }
 
+export async function saveRepsoitoryToNotion(token, repository) {
+  // console.dir(
+  //   '*************************',
+  //   markdownToBlocks(repository.readme),
+  //   { depth: null }
+  // );
+  // console.log(
+  //   util.inspect(markdownToBlocks(repository.readme)[0], { depth: 6 })
+  // );
+  //console.log(repository, repository.files);
+  try {
+    const readme = markdownToBlocks(repository.readme);
+
+    const packageDescription = getPackageDesriptionBlock(
+      repository.pakageDescriptions
+    );
+    console.log('Start processing', repository.name);
+    let notionObj = {
+      parent: {
+        database_id: NOTION_JS_DATABASE_ID,
+      },
+      icon: {
+        external: {
+          url: token.icon.external.url,
+        },
+      },
+      properties: {
+        Id: {
+          number: token.properties.Id.number,
+        },
+        RepositoryName: {
+          title: [
+            {
+              text: {
+                content: repository.name,
+              },
+            },
+          ],
+        },
+        ProjectName: {
+          relation: [
+            {
+              id: token.id,
+            },
+          ],
+        },
+        Repository: {
+          url: repository.url,
+        },
+        Topics: {
+          multi_select: repository.topics,
+        },
+        IsFork: {
+          checkbox: repository.isFork,
+        },
+        Description: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: repository.description,
+              },
+            },
+          ],
+        },
+        Packages: {
+          multi_select: repository.packages.map((r) => {
+            return { name: r };
+          }),
+        },
+        HomePage: {
+          url: repository.homepage || null,
+        },
+        Commits: {
+          number: repository.commits,
+        },
+        Stars: {
+          number: repository.stars,
+        },
+        TotalFiles: {
+          number: repository.files.totalFiles,
+        },
+        TotalJSFiles: {
+          number: repository.files.totalJsFiles,
+        },
+        Forks: {
+          number: repository.forks,
+        },
+        LastCommitDate: {
+          date: {
+            start: repository.lastCommitDate.slice(0, 10),
+          },
+        },
+      },
+      children: [packageDescription, ...repository.files.blocks, ...readme],
+    };
+    notionObj.children = notionObj.children.slice(0, 100);
+    console.log(notionObj.children.length, 'children length');
+
+    await notion.pages.create(notionObj);
+    console.log('**********Saved*********', repository.name);
+  } catch (err) {
+    console.error(err);
+  }
+}
+
+function getPackageDesriptionBlock(packageObj) {
+  const pd = Object.entries(packageObj)
+    .map(([key, value]) => {
+      return `${key}: "${value}"`;
+    })
+    .join('\n');
+  return {
+    type: 'code',
+    code: {
+      rich_text: [
+        {
+          type: 'text',
+          text: {
+            content: pd,
+          },
+        },
+      ],
+      language: 'javascript',
+    },
+  };
+}
+
 export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
   let response;
   try {
@@ -275,15 +395,9 @@ export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
     console.error(err);
   }
   //7291,6845, 6831,6780, 7509, 7546
-  //
-  //   const tokenIds = response.results.map((item) => ({
-  //     id: item.properties.Id.number,
-  //   }));
 
   return response;
 }
-
-const n2m = new NotionToMarkdown({ notionClient: notion });
 
 async function addContent(pageId) {
   console.log(pageId);
@@ -308,93 +422,19 @@ async function addSitePicture(id) {
 function capitalizeFirstLetter(string) {
   return string.charAt(0).toUpperCase() + string.slice(1);
 }
-// // format:
-// // block_full_width: false
-// // block_height: 930
-// // block_page_width: true
-// // block_preserve_scale: false
-// // block_width: 672
-// // display_source: "https://news.bitcoin.com/nigerian-fintech-founder-african-fintechs-have-a-greater-scale-potential-than-other-tech-startups/"
 
-// // format?: {
-// //   block_width: number
-// //   block_height: number
-// //   display_source: string
-// //   block_full_width: boolean
-// //   block_page_width: boolean
-// //   block_aspect_ratio: number
-// //   block_preserve_scale: boolean
-// // }
-// // file_ids?: string[]
-// // }
-// // export async function getExistingPages(items) {
-// //   const notion = new Client({
-// //     auth: NOTION_API_TOKEN,
-// //     logLevel,
-// //   });
-// //   const response = await notion.databases.query({
-// //     database_id: NOTION_READER_DATABASE_ID,
-// //     or: items.map((item) => ({
-// //       property: 'Link',
-// //       text: {
-// //         equals: item.link,
-// //       },
-// //     })),
-// //   });
+//create asyc function to get data from github
+// function getGithubData() {
+//   return new Promise(async (resolve, reject) => {
+//     try {
+//       const response = await axios.get(
+//         'https://api.github.com/users/notion',
+//         {
+//           headers: {
 
-// //   return response.results;
-// // }
+// }
 
-// // export async function deleteOldUnreadFeedItemsFromNotion() {
-// //   const notion = new Client({
-// //     auth: NOTION_API_TOKEN,
-// //     logLevel,
-// //   });
-
-// //   // Create a datetime which is 30 days earlier than the current time
-// //   const fetchBeforeDate = new Date();
-// //   fetchBeforeDate.setDate(fetchBeforeDate.getDate() - 5);
-
-// //   // Query the feed reader database
-// //   // and fetch only those items that are unread or created before last 30 days
-// //   let response;
-// //   try {
-// //     response = await notion.databases.query({
-// //       database_id: NOTION_READER_DATABASE_ID,
-// //       filter: {
-// //         and: [
-// //           {
-// //             property: 'Created At',
-// //             date: {
-// //               on_or_before: fetchBeforeDate.toJSON(),
-// //             },
-// //           },
-// //           {
-// //             property: 'Read',
-// //             checkbox: {
-// //               equals: false,
-// //             },
-// //           },
-// //         ],
-// //       },
-// //     });
-// //   } catch (err) {
-// //     console.error(err);
-// //     return;
-// //   }
-
-// //   // Get the page IDs from the response
-// //   const feedItemsIds = response.results.map((item) => item.id);
-
-// //   for (let i = 0; i < feedItemsIds.length; i++) {
-// //     const id = feedItemsIds[i];
-// //     try {
-// //       await notion.pages.update({
-// //         page_id: id,
-// //         archived: true,
-// //       });
-// //     } catch (err) {
-// //       console.error(err);
-// //     }
-// //   }
-// // }
+// function to get data from github
+function getGithubData() {
+  console.dir('', { depth: nu });
+}

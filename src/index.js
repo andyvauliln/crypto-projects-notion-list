@@ -3,6 +3,7 @@ import {
   addTokenToNotion,
   getLastToken,
   getNotionTokensWithSourceCode,
+  saveRepsoitoryToNotion,
 } from './notion';
 import {
   getGihubRepos,
@@ -39,45 +40,34 @@ async function migrateFromCoinmarketCap() {
 // }
 
 const amountRequest = 1;
-const limit = 10;
-async function generateUIList() {
+const limit = 3;
+async function downloadProjectRepositories() {
   for (let i = 0; i < amountRequest; i++) {
     const tokens = await getNotionTokensWithSourceCode(i * 10 || 1, limit);
-    console.log(
-      tokens.results[0].properties.SourceCode.rich_text[0].plain_text
-    );
 
     for (let j = 0; j < tokens.results.length; j++) {
+      console.log(
+        tokens.results[j].properties.Id.number,
+        tokens.results[j].properties.Name.title[0].text.content,
+        'Processsing*****'
+      );
       const githubLinks =
         tokens.results[j].properties.SourceCode.rich_text[0].plain_text.split(
           ','
         );
       let repos = [];
-      console.log(githubLinks, 'LINKS ARR********************************');
       await asyncForEach(githubLinks, async (link) => {
-        console.log(link, 'LINK*************************************');
         const rep = await getGihubRepos(link);
         repos = [...rep, ...repos];
       });
-      console.log(repos, 'END************************************************');
 
-      // for (let k = 0; k < repos.length; k++) {
-      //   console.log(repos[k], 'REPO*************************************');
-      //   const getPackageJson = await getPackageJsonFromRepo(repos[k]);
-      //   console.log(getPackageJson);
-      //   const getMarkdown = await getMarkdownFromRepo(repos[k]);
-      //   console.log(getMarkdown);
-      //   await saveGitFilesToNotion(
-      //     getPackageJson,
-      //     getMarkdown,
-      //     tokens[j],
-      //     repos[k]
-      //   );
-      // }
+      for (let k = 0; k < repos.length; k++) {
+        await saveRepsoitoryToNotion(tokens.results[j], repos[k]);
+      }
     }
   }
 }
-generateUIList();
+downloadProjectRepositories();
 
 function getArrray(start, end) {
   return Array(end - start + 1)
