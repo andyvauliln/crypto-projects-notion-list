@@ -1,6 +1,7 @@
 import dotenv from 'dotenv';
+import { getDescriptions } from 'npm-description';
 import { Octokit } from 'octokit';
-import { getDescriptions } from './NotionParser';
+import LoggerInstance from './loging';
 
 dotenv.config();
 
@@ -14,183 +15,179 @@ export async function getGihubRepos(
   githubLink,
   laguages = 'language:javascript'
 ) {
-  const owner = githubLink.split('/')[3];
-  const resp = await octokit.rest.search.repos({
-    q: `${laguages}+user:${owner}+fork:true`,
-    per_page: 300,
-  });
-  //console.log(resp.data.items[0], 'response data');
-
   const repos = [];
-  await asyncForEach(resp.data.items, async function (item) {
-    let packages = await getPackageJsonFromRepo(item.html_url);
-    const filesData = generateNotionBlockForFiles(
-      await getGithubRepoFiles(owner, item.name)
-    );
-    let descr = '';
-    if (packages && packages.dependencies) {
-      descr = packages.description;
-      packages = packages.dependencies;
-    } else {
-      return;
-    }
-    const repo = {
-      name: item.name,
-      language: item.language,
-      stars: item.stargazers_count,
-      forks: item.forks_count,
-      isFork: item.fork,
-      url: item.html_url,
-      topics: item.topics,
-      description: item.description || descr,
-      commits: await getTotalCommits(owner, item.name),
-      packages: Object.keys(packages),
-      pakageDescriptions: await getPakageDescriptions(Object.keys(packages)),
-      readme: await getMarkdownFromRepo(item.html_url),
-      lastCommitDate: item.pushed_at,
-      homepage: item.homepage,
-      files: filesData,
-    };
-    //console.log(repo, 'REPO********************');
-    repos.push(repo);
-  });
-  return repos;
-}
-
-async function getGithubRepoFiles(owner, repo) {
-  // console.log(
-  //   `https://api.github.com/repos/${owner}/${repo}/git/trees/master?recursive=true`
-  // );
-  const files = await octokit.request(
-    'GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=true',
-    {
-      owner: owner,
-      repo: repo,
-      tree_sha: 'master',
-    }
-  );
-  return generateFileTypesMap(
-    files.data.tree.filter((r) => r.type !== 'tree').map((file) => file.path)
-  );
-}
-
-// function to get file type
-function generateFileTypesMap(files) {
-  const types = {};
-  files.forEach((file) => {
-    const fileParts = file.split('/')[file.split('/').length - 1].split('.');
-
-    if (fileParts.length === 1) {
-      types[fileParts[0]] = types[fileParts[0]]
-        ? [...types[fileParts[0]], file]
-        : [file];
-    } else if (fileParts.length === 2 && fileParts[0] === '') {
-      types['.' + fileParts[1]] = types['.' + fileParts[1]]
-        ? [...types['.' + fileParts[1]], file]
-        : [file];
-    } else {
-      types[fileParts[fileParts.length - 1]] = types[
-        fileParts[fileParts.length - 1]
-      ]
-        ? [...types[fileParts[fileParts.length - 1]], file]
-        : [file];
-    }
-  });
-
-  let obj = {};
-  Object.keys(types).forEach((key) => {
-    obj[key] = { count: types[key].length, files: types[key] };
-  });
-
-  //console.log(obj, 'FILES IN REPO');
-  return obj;
-}
-function generateNotionBlockForFiles(files) {
-  const blocks = [];
-  let totalJsFiles = 0;
-  let totalFiles = 0;
-  Object.entries(files).forEach(([key, value]) => {
-    if (key === 'js') {
-      totalJsFiles = value.count;
-    }
-    totalFiles += value.count;
-    // console.log(key, value);
-    blocks.push({
-      toggle: {
-        rich_text: [
-          {
-            type: 'text',
-            text: {
-              content: `${key} (${value.count})`,
-              link: null,
-            },
-            annotations: {
-              bold: true,
-            },
-          },
-        ],
-        color: 'default',
-        children: chunkContent(value.files, 30).map((files) => {
-          return {
-            type: 'code',
-            code: {
-              rich_text: [
-                {
-                  type: 'text',
-                  text: {
-                    content: `  path: "${files.join('\n  path: ')}"`,
-                  },
-                },
-              ],
-              language: 'javascript',
-            },
-          };
-        }),
-      },
+  const owner = githubLink.split('/')[3];
+  const url = `https://api.github.com/search/repositories?q=${laguages}+user:${owner}+fork:true&per_page=300`;
+  try {
+    await LoggerInstance.logInfo(`getGihubRepos - SEARCHING BY URL: \n ${url}`);
+    const resp = await octokit.rest.search.repos({
+      q: `${laguages}+user:${owner}+fork:true`,
+      per_page: 300,
     });
-  });
-  return { totalJsFiles, totalFiles, blocks };
-}
-function chunkContent(files, size) {
-  const chunked_arr = [];
-  let index = 0;
-  while (index < files.length) {
-    chunked_arr.push(files.slice(index, size + index));
-    index += size;
+    await LoggerInstance.logInfo(
+      `getGihubRepos - USER  ${owner}  HAS: ${
+        resp.data ? resp.data.items.length : 0
+      } REPOS \n\n ${JSON.stringify(resp?.data?.items)}`
+    );
+
+    await asyncForEach(resp.data.items, async function (item, index) {
+      await LoggerInstance.logInfo(
+        `getGihubRepos - REPO OBJ FOR OWNER: ${owner}, REPO: ${
+          item.name
+        }: \n\n ${JSON.stringify(item)}`,
+        false
+      );
+
+      const packages = await getPackageJsonFromRepo(item.html_url);
+      const readme = await getMarkdownFromRepo(item.html_url);
+      const filesData = await getGithubRepoFiles(
+        owner,
+        item.name,
+        item.default_branch
+      );
+
+      const descr = parsePackageJson(packages, 'description');
+      const projectPackages = parsePackageJson(packages, 'dependencies');
+      const devPackages = parsePackageJson(packages, 'devDependencies');
+      const keywords = parsePackageJson(packages, 'keywords');
+      const license = parsePackageJson(packages, 'license');
+
+      const repo = {
+        name: item.name,
+        language: item.language,
+        stars: item.stargazers_count,
+        forks: item.forks_count,
+        isFork: item.fork,
+        url: item.html_url,
+        topics: item.topics,
+        description: item.description || descr,
+        lastCommitDate: item.pushed_at,
+        homepage: item.homepage,
+        keywords: keywords ? keywords : [],
+        license: license ? license : '',
+        files: filesData,
+        readme: readme,
+        default_branch: item.default_branch,
+        commits: await getTotalCommits(owner, item.name),
+        devPackages: devPackages ? Object.keys(devPackages) : [],
+        packages: packages ? Object.keys(projectPackages) : [],
+        devPackagesDescr: devPackages
+          ? await getPackageDescr(Object.keys(devPackages), item.name)
+          : null,
+        packageDescr: projectPackages
+          ? await getPackageDescr(Object.keys(packages), item.name)
+          : null,
+      };
+      if (repo) {
+        repos.push(repo);
+      }
+    });
+    return repos;
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getGihubRepos(${githubLink}) \n\n ${error.message}\n\n${error.stack}`
+    );
   }
-  return chunked_arr;
 }
 
-//function to calculate same values in array
-function calculateSameValues(arr) {
-  const counts = {};
-  arr.forEach(function (x) {
-    counts[x] = (counts[x] || 0) + 1;
-  });
-  return counts;
+export async function getGithubRepoFiles(
+  owner,
+  repo,
+  branch = 'master',
+  counter = 1
+) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/git/trees/${branch}?recursive=true`;
+  try {
+    await LoggerInstance.logInfo(
+      `getGithubRepoFiles ${repo} SEARCHING BY URL: \n\n ${url}`
+    );
+
+    const files = await octokit.request(
+      'GET /repos/{owner}/{repo}/git/trees/{tree_sha}?recursive=true',
+      {
+        owner: owner,
+        repo: repo,
+        tree_sha: branch,
+      }
+    );
+
+    return await generateFileTypesMap(
+      files.data.tree.filter((r) => r.type !== 'tree').map((file) => file.path),
+      repo
+    );
+  } catch (error) {
+    if (counter >= 2) {
+      await LoggerInstance.logError(
+        `getGithubRepoFiles(${owner}, ${repo}) \n\n CAN'T GET FILES FROM REPO !!!\n\n${url}`
+      );
+      return [];
+    }
+    return await getGithubRepoFiles(owner, repo, 'main', counter + 1);
+  }
 }
 
-async function getPackageJsonFromRepo(githubLink) {
-  const resp = await getGithubContent(githubLink, 'package.json');
-  //console.log(JSON.parse(resp), 'package.json');
-  return JSON.parse(resp) || {};
+export async function generateFileTypesMap(files, repo) {
+  const types = {};
+  try {
+    files.forEach((file) => {
+      const fileParts = file.split('/')[file.split('/').length - 1].split('.');
+
+      if (fileParts.length === 1) {
+        types[fileParts[0]] = types[fileParts[0]]
+          ? [...types[fileParts[0]], file]
+          : [file];
+      } else if (fileParts.length === 2 && fileParts[0] === '') {
+        types['.' + fileParts[1]] = types['.' + fileParts[1]]
+          ? [...types['.' + fileParts[1]], file]
+          : [file];
+      } else {
+        types[fileParts[fileParts.length - 1]] = types[
+          fileParts[fileParts.length - 1]
+        ]
+          ? [...types[fileParts[fileParts.length - 1]], file]
+          : [file];
+      }
+    });
+
+    let obj = {};
+    Object.keys(types).forEach((key) => {
+      obj[key] = { count: types[key].length, files: types[key] };
+    });
+    await LoggerInstance.logInfo(
+      `generateFileTypesMap ${repo}:\n\n ${JSON.stringify(obj)}`,
+      false
+    );
+    return obj;
+  } catch (error) {
+    await LoggerInstance.logError(
+      `generateFileTypesMap ${repo} :\n\n ${JSON.stringify(files)}\n\n${error}`
+    );
+    return [];
+  }
 }
-async function getMarkdownFromRepo(githubLink) {
+
+export async function getPackageJsonFromRepo(githubLink) {
+  try {
+    const resp = await getGithubContent(githubLink, 'package.json');
+    if (resp) {
+      return JSON.parse(resp);
+    }
+    return null;
+  } catch (error) {
+    return null;
+  }
+}
+export async function getMarkdownFromRepo(githubLink) {
   const resp = await getGithubContent(githubLink, 'README.md');
-  //console.log(resp, 'README.md');
   return resp;
 }
 
-async function getPakageDescriptions(pakages) {
-  const packageInfo = await getDescriptions(pakages);
-  //console.log(packageInfo, 'package info');
-  return packageInfo;
-}
-
-async function getGithubContent(githubLink, path) {
+export async function getGithubContent(githubLink, path) {
+  const owner = githubLink.split('/')[3];
+  const repo = githubLink.split('/')[4];
+  const url = `https://api.github.com/repos/${owner}/${repo}/contents/${path}`;
   try {
-    const owner = githubLink.split('/')[3];
-    const repo = githubLink.split('/')[4];
+    await LoggerInstance.logInfo(`getGithubContent ${repo} \n\n ${url}`);
     const resp = await octokit.request(
       'GET /repos/{owner}/{repo}/contents/{path}',
       {
@@ -204,38 +201,73 @@ async function getGithubContent(githubLink, path) {
     }
     return '';
   } catch (error) {
-    console.error(error);
+    await LoggerInstance.logError(
+      `getGithubContent ${githubLink.split('/')[4]}:\n\n${url} \n\n ${error}`
+    );
     return '';
   }
 }
 
-async function getTotalCommits(owner, repo) {
-  const resp = await octokit.request(
-    'GET /repos/{owner}/{repo}/commits?per_page=100',
-    {
-      owner: owner,
-      repo: repo,
-    }
-  );
-  if (resp.headers['link']) {
-    const pages = resp.headers['link']
-      .split(',')[1]
-      .match(/.*page=(?<page_num>\d+)/).groups.page_num;
-    const resp2 = await octokit.request(
-      'GET /repos/{owner}/{repo}/commits?per_page=100&page=' + pages,
+export async function getTotalCommits(owner, repo) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/commits?per_page=100`;
+  try {
+    await LoggerInstance.logInfo(`getTotalCommits ${repo} \n\n ${url}`);
+    const resp = await octokit.request(
+      'GET /repos/{owner}/{repo}/commits?per_page=100',
       {
         owner: owner,
         repo: repo,
       }
     );
-    return resp2.data.length + (pages - 1) * 100;
-  } else {
-    return resp.data.length;
+    if (resp.headers['link']) {
+      const pages = resp.headers['link']
+        .split(',')[1]
+        .match(/.*page=(?<page_num>\d+)/).groups.page_num;
+      const resp2 = await octokit.request(
+        'GET /repos/{owner}/{repo}/commits?per_page=100&page=' + pages,
+        {
+          owner: owner,
+          repo: repo,
+        }
+      );
+      return resp2.data.length + (pages - 1) * 100;
+    } else {
+      return resp.data.length;
+    }
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getTotalCommits ${repo}:\n\n ${url}\n\n${error}`
+    );
+    return 0;
   }
 }
+
+export async function getPackageDescr(pakages, repo) {
+  try {
+    await LoggerInstance.logInfo(`getPackageDescr ${repo}`);
+    if (pakages && pakages.length) {
+      const packageInfo = await getDescriptions(pakages);
+      return packageInfo;
+    }
+    return null;
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getPackageDescr ${repo}:\n\n ${JSON.stringify(pakages)}\n\n${error}`
+    );
+    return null;
+  }
+}
+
+// ******************** UTILS **********************
 
 async function asyncForEach(array, callback) {
   for (let index = 0; index < array.length; index++) {
     await callback(array[index], index, array);
   }
+}
+function parsePackageJson(packages, property) {
+  if (packages && packages[property]) {
+    return packages[property];
+  }
+  return '';
 }

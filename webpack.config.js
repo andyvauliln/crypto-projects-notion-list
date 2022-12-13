@@ -21,6 +21,10 @@ module.exports = (env) => {
       path: path.resolve(__dirname, 'dist'),
       clean: true,
     },
+
+    experiments: {
+      topLevelAwait: true,
+    },
     resolve: {
       alias: {
         src: path.resolve(__dirname, 'src'),
