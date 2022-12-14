@@ -31,6 +31,7 @@
     "octokit": "^2.0.10",
     "package-info": "^5.0.6",
     "puppeteer": "^19.3.0",
+    "puppeteer-full-page-screenshot": "^1.2.2",
     "qs": "^6.11.0",
     "remark-gfm": "^1.0.0",
     "remark-math": "^4.0.0",

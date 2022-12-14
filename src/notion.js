@@ -11,34 +11,68 @@ dotenv.config();
 const { NOTION_API_TOKEN, NOTION_TOKENS_DATABASE_ID, NOTION_JS_DATABASE_ID } =
   process.env;
 
-const notionLoging = (logLevel, message, extraInfo) => {
-  if (logLevel === 'error' || logLevel === 'warn') {
-    LoggerInstance.logError(
-      `\n NOTION ERROR\n\n${message}\n\n ${JSON.stringify(extraInfo)}`
-    );
-  }
-  // else {
-  //   LoggerInstance.logInfo(
-  //     `\n NOTION LOGLEVEL: ${logLevel} \n\n${message} \n\n ${JSON.stringify(
-  //       extraInfo
-  //     )}`,
-  //     false
-  //   );
-  // }
-};
 const notion = new Client({
   auth: NOTION_API_TOKEN,
   logLevel: LogLevel.DEBUG,
-  // logger: notionLoging,
 });
 
 //************************  GETTERS  ************************** */
+export async function getNotionTokensWithSites(startId = 0, limit = 100) {
+  let response;
+  try {
+    response = await notion.databases.query({
+      database_id: NOTION_TOKENS_DATABASE_ID,
+      sorts: [
+        {
+          property: 'Id',
+          direction: 'ascending',
+        },
+      ],
+      page_size: limit,
+      filter: {
+        and: [
+          {
+            property: 'Id',
+            number: {
+              greater_than: startId,
+            },
+          },
+          {
+            property: 'Id',
+            number: {
+              less_than: limit,
+            },
+          },
+          {
+            property: 'Website',
+            rich_text: {
+              is_not_empty: true,
+            },
+          },
+        ],
+      },
+    });
+    return response.results || [];
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getNotionTokensWithSites (${startId}, ${limit}):\n\n ${error.message} \n\n ${error.stack}`
+    );
+    return [];
+  }
+
+}
 export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
   let response;
   try {
     response = await notion.databases.query({
       database_id: NOTION_TOKENS_DATABASE_ID,
       page_size: limit,
+      sorts: [
+        {
+          property: 'Id',
+          direction: 'ascending',
+        },
+      ],
       filter: {
         and: [
           {
@@ -71,7 +105,7 @@ export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
 
   return response.results || [];
 }
-export async function getLastToken() {
+export async function getLastTokenId() {
   let response;
   try {
     response = await notion.databases.query({
@@ -86,8 +120,59 @@ export async function getLastToken() {
     });
   } catch (error) {
     await LoggerInstance.logError(
-      `getLastToken:\n\n ${error.message} \n\n ${error.stack}`
+      `getLastTokenId:\n\n ${error.message} \n\n ${error.stack}`
     );
+    return null;
+  }
+
+  return response.results[0].properties.Id.number;
+}
+export async function getLastContentDowloadedTokenId() {
+  let response;
+  try {
+    response = await notion.databases.query({
+      database_id: NOTION_TOKENS_DATABASE_ID,
+      sorts: [
+        {
+          property: 'Id',
+          direction: 'descending',
+        },
+      ],
+      filter: {
+        property: 'IsContetDownloaded',
+        checkbox: {
+          equal: true,
+        },
+      },
+      page_size: 1,
+    });
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getLastContentDowloadedTokenId:\n\n ${error.message} \n\n ${error.stack}`
+    );
+    return null;
+  }
+
+  return response.results[0].properties.Id.number;
+}
+export async function getLastRepositoryTokenId() {
+  let response;
+  try {
+    response = await notion.databases.query({
+      database_id: NOTION_JS_DATABASE_ID,
+      sorts: [
+        {
+          property: 'Id',
+          direction: 'descending',
+        },
+      ],
+      page_size: 1,
+    });
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getLastTokenId:\n\n ${error.message} \n\n ${error.stack}`
+    );
+    return null;
   }
 
   return response.results[0].properties.Id.number;
@@ -277,6 +362,7 @@ export async function addTokenToNotion(notionItem) {
     await LoggerInstance.logError(
       `addTokenToNotion  (${notionItem.id}) ${notionItem.name}:\n\n ${error.message} \n\n ${error.stack}`
     );
+    throw new Error("TOKEN NOT ADDED")
   }
 }
 
@@ -287,10 +373,9 @@ export async function addRepsoitoryToNotion(token, repository) {
       repository.readme,
       repository.name
     );
-    const files = await generateNotionFilesBlocks(
+    const files = generateNotionFilesBlocks(
       repository.files,
-      repository.name,
-      repository.url
+      repository
     );
     const packageDescription = await generatePackageDesriptionBlocks(
       repository.packageDescr,
@@ -298,12 +383,20 @@ export async function addRepsoitoryToNotion(token, repository) {
     );
     const devPackageDescription = await generatePackageDesriptionBlocks(
       repository.devPackagesDescr,
-      repository.name
+      repository.name,
+      "dev"
     );
+
+
 
     notionObj = {
       parent: {
         database_id: NOTION_JS_DATABASE_ID,
+      },
+      icon: {
+        external: {
+          url: getTypeIcon(repository.language),
+        },
       },
       properties: {
         Id: {
@@ -339,6 +432,14 @@ export async function addRepsoitoryToNotion(token, repository) {
           multi_select:
             repository.topics && Array.isArray(repository.topics)
               ? repository.topics.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        Languages: {
+          multi_select:
+            repository.languages && Array.isArray(repository.languages)
+              ? repository.languages.map((r) => {
                 return { name: r };
               })
               : [],
@@ -386,6 +487,9 @@ export async function addRepsoitoryToNotion(token, repository) {
                 .slice(0, 100)
               : [],
         },
+        FileTypes: {
+          multi_select: files.fileTypes,
+        },
         Language: { select: { name: repository.language || 'null' } },
         HomePage: {
           url: repository.homepage || null,
@@ -412,17 +516,17 @@ export async function addRepsoitoryToNotion(token, repository) {
         },
       },
       children: [
-        // packageDescription,
-        // devPackageDescription,
+        packageDescription,
+        devPackageDescription,
         files.filesBlock,
-        {
-          embed: {
-            url: 'https://raw.githubusercontent.com/andyvauliln/dapps-sdk/master/README.md',
-            // external: {
-            //   url: 'https://dexe.network/Dexe-DAO-Memo.pdf',
-            // },
-          },
-        },
+        // {
+        //   embed: {
+        //     url: 'https://raw.githubusercontent.com/andyvauliln/dapps-sdk/master/README.md',
+        //     // external: {
+        //     //   url: 'https://dexe.network/Dexe-DAO-Memo.pdf',
+        //     // },
+        //   },
+        // },
         // ...readmeBlocks,
       ],
     };
@@ -435,129 +539,257 @@ export async function addRepsoitoryToNotion(token, repository) {
     }
   } catch (error) {
     await LoggerInstance.logError(
-      `addRepsoitoryToNotion(repoName: ${repository.name}) \n\n${repository.url
+      `addRepsoitoryToNotion(repoName: ${token.properties.Id.number} - ${repository.name}) \n\n${repository.url
       }\n\n\n${JSON.stringify(notionObj)} \n\n  ${error.message} \n\n ${error.stack
       }`
     );
     await LoggerInstance.makeReport(repository, error.message);
+    throw new Error(`REPO NOT ADDED ${token.properties.Id.number}`);
+  }
+}
+
+export async function addSiteContentToNotion(token, repository) {
+  let notionObj = {};
+  try {
+    const readmeBlocks = await generateNotionReadmeBlocks(
+      repository.readme,
+      repository.name
+    );
+    const files = generateNotionFilesBlocks(
+      repository.files,
+      repository
+    );
+    const packageDescription = await generatePackageDesriptionBlocks(
+      repository.packageDescr,
+      repository.name
+    );
+    const devPackageDescription = await generatePackageDesriptionBlocks(
+      repository.devPackagesDescr,
+      repository.name,
+      "dev"
+    );
+
+
+    const response = await notion.pages.update({
+      page_id: id,
+      properties: {
+        children: {
+          checkbox: true,
+        },
+      },
+    });
+
+    notionObj = {
+      parent: {
+        database_id: NOTION_JS_DATABASE_ID,
+      },
+      icon: {
+        external: {
+          url: getTypeIcon(repository.language),
+        },
+      },
+      properties: {
+        Id: {
+          number: token.properties.Id.number,
+        },
+        RepositoryName: {
+          title: [
+            {
+              text: {
+                content: repository.name,
+              },
+            },
+          ],
+        },
+        ProjectName: {
+          relation: [
+            {
+              id: token.id,
+            },
+          ],
+        },
+        Repository: {
+          url: repository.url,
+        },
+        License: {
+          select: {
+            name: repository.license
+              ? capitalizeFirstLetter(repository.license)
+              : 'No License',
+          },
+        },
+        Topics: {
+          multi_select:
+            repository.topics && Array.isArray(repository.topics)
+              ? repository.topics.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        Languages: {
+          multi_select:
+            repository.languages && Array.isArray(repository.languages)
+              ? repository.languages.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        Keywords: {
+          multi_select:
+            repository.keywords && Array.isArray(repository.keywords)
+              ? repository.keywords.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        IsFork: {
+          checkbox: repository.isFork,
+        },
+        Description: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: repository.description
+                  ? repository.description.slice(0, 2000)
+                  : '',
+              },
+            },
+          ],
+        },
+        Packages: {
+          multi_select:
+            repository.packages && Array.isArray(repository.packages)
+              ? repository.packages
+                .map((r) => {
+                  return { name: r };
+                })
+                .slice(0, 100)
+              : [],
+        },
+        DevPackages: {
+          multi_select:
+            repository.devPackages && Array.isArray(repository.devPackages)
+              ? repository.devPackages
+                .map((r) => {
+                  return { name: r };
+                })
+                .slice(0, 100)
+              : [],
+        },
+        FileTypes: {
+          multi_select: files.fileTypes,
+        },
+        Language: { select: { name: repository.language || 'null' } },
+        HomePage: {
+          url: repository.homepage || null,
+        },
+        Commits: {
+          number: repository.commits,
+        },
+        Stars: {
+          number: repository.stars,
+        },
+        TotalFiles: {
+          number: files.totalFiles,
+        },
+        TotalLanguageFiles: {
+          number: files.totalLanguageFiles,
+        },
+        Forks: {
+          number: repository.forks,
+        },
+        LastCommitDate: {
+          date: {
+            start: repository.lastCommitDate.slice(0, 10),
+          },
+        },
+      },
+      children: [
+        packageDescription,
+        devPackageDescription,
+        files.filesBlock,
+        // {
+        //   embed: {
+        //     url: 'https://raw.githubusercontent.com/andyvauliln/dapps-sdk/master/README.md',
+        //     // external: {
+        //     //   url: 'https://dexe.network/Dexe-DAO-Memo.pdf',
+        //     // },
+        //   },
+        // },
+        // ...readmeBlocks,
+      ],
+    };
+    const createdPage = await notion.pages.create(notionObj);
+    if (createdPage && createdPage.id) {
+      await LoggerInstance.logInfo(
+        'addRepsoitoryToNotion SAVIED TO NOTION: ' + repository.name
+      );
+      await LoggerInstance.makeReport(repository);
+    }
+  } catch (error) {
+    await LoggerInstance.logError(
+      `addRepsoitoryToNotion(repoName: ${token.properties.Id.number} - ${repository.name}) \n\n${repository.url
+      }\n\n\n${JSON.stringify(notionObj)} \n\n  ${error.message} \n\n ${error.stack
+      }`
+    );
+    await LoggerInstance.makeReport(repository, error.message);
+    throw new Error(`REPO NOT ADDED ${token.properties.Id.number}`);
   }
 }
 
 //******************** GENERATE NOTION BLOCKS CONTENT ************** */
 
-function generateExtentionData(item) {
-  return ext[item.replace('.', '')] || {};
-}
 
-export async function generateNotionFilesBlocks(files, repo, url) {
+// TODO: add github language scheme
+export function generateNotionFilesBlocks(files, repo) {
   const filesBlock = {};
   let totalLanguageFiles = 0;
   let totalFiles = 0;
-  let heading_2 = {
-    heading_2: {
-      rich_text: [
-        {
-          type: 'text',
-          text: {
-            content: 'Files',
-          },
-        },
-      ],
-      children: [],
-      is_toggleable: true,
-    },
-  };
+  let fileTypes = Object.keys(files).map((key) => { return { name: key } });
+  fileTypes = fileTypes.slice(0, 100);
+  let heading_2 = getNotionBlocks('heading_2');
+
   try {
-    let heading_3 = {
-      heading_3: {
-        rich_text: [
-          {
-            type: 'text',
-            text: {
-              content: '',
-              link: null,
-            },
-          },
-        ],
-        children: [],
-        color: 'default',
-        is_toggleable: true,
-      },
-    };
-    let text = {
-      type: 'text',
-      text: {
-        content: 'Files',
-      },
-    };
-    let paragraph = {
-      paragraph: {
-        rich_text: [],
-      },
-    };
-    const file = '/src/github.js\n';
-    totalFiles += 4;
-    heading_3.heading_3.rich_text[0].text.content = `[${3}] ${'.js'} ${"JavaScript"}`;
-    text.text.content = file;
-    text.text.link = { url: `${url}/blob/${repo.default_branch || 'master'}/${file}` };
 
-    paragraph.paragraph.rich_text = createRangeArray(0, 99).map((i) => text);
-    heading_3.heading_3.children.push(paragraph);
-    heading_2.heading_2.children.push(heading_3);
+    Object.entries(files).sort((a, b) => b[1].count - a[1].count).forEach(([key, value]) => {
+      const fileDescr = getExtentionData(key);
+      if (
+        fileDescr.name &&
+        repo.language &&
+        fileDescr.name.toLowerCase() === repo.language.toLowerCase()
+      ) {
+        totalLanguageFiles = value.count;
+      }
+      // if (fileDescr.name) {
+      totalFiles += value.count;
+      let heading_3 = getNotionBlocks('heading_3');
 
-    // Object.entries(files).forEach(([key, value]) => {
-    //   const fileDescr = generateExtentionData(key);
-    //   if (
-    //     fileDescr.name &&
-    //     repo.language &&
-    //     fileDescr.name.toLowerCase() === repo.language.toLowerCase()
-    //   ) {
-    //     totalLanguageFiles = value.count;
-    //   }
-    //   if (fileDescr.name) {
-    //     const file = "/src/github.js"
-    //     totalFiles += value.count;
-    //     let h3 = heading_3;
-    //     h3.heading_3.rich_text[0].text.content = `[${value.count}] ${key} ${
-    //       fileDescr.name || ''
-    //     }`;
-    //     let p = paragraph;
-    //     let t = text;
-    //     t.text.content = file;
-    //     t.text.link = `${url}/blob/${repo.default_branch || 'master'}/${file}`;
-
-    //     h3.heading_3.rich_text[0].text.content = `[${value.count}] ${key} ${
-    //       fileDescr.name || ''
-    //     }`;
-
-    //     for (let i = 0; i < value.files.length; i += 100) {
-    //       value.files.slice(i * 100, i * 100 + 100).forEach((file) => {
-    //         let t = text;
-    //         t.text.content = file;
-    //         t.text.link = `${url}/blob/${
-    //           repo.default_branch || 'master'
-    //         }/${file}`;
-    //         p.paragraph.children.push(t);
-    //       });
-    //       h3.heading_3.children.push(p);
-    //     }
-    //     heading_2.heading_2.children.push(h3);
-    //   }
-    // });
-
-    return { totalFiles, totalLanguageFiles, filesBlock: heading_2 };
+      heading_3.heading_3.rich_text[0].text.content = `[${value.count}] ${key} ${!fileDescr.name || key === fileDescr.name ? '' : "(" + fileDescr.name + ")"}`;
+      heading_3.heading_3.color = "green"
+      for (let i = 0; i < value.files.length; i += 100) {
+        let paragraph = getNotionBlocks('paragraph');
+        value.files.slice(i * 100, i * 100 + 100).forEach((file) => {
+          let text = getNotionBlocks('text');
+          text.text.content = "/" + file + "\n";
+          text.text.link = { url: `${repo.url}/blob/${repo.default_branch || 'master'}/${file}` };
+          paragraph.paragraph.color = "default";
+          paragraph.paragraph.rich_text.push(text);
+        });
+        heading_3.heading_3.children.push(paragraph);
+      }
+      heading_2.heading_2.children.push(heading_3);
+      // }
+    });
+    heading_2.heading_2.rich_text[0].text.content = `[${totalFiles}] Files`;
+    heading_2.heading_2.color = "yellow";
+    return { totalFiles, totalLanguageFiles, fileTypes, filesBlock: heading_2 };
   } catch (error) {
-    await LoggerInstance.logError(
+    LoggerInstance.logError(
       `generateNotionFilesBlocks ${repo}:\n\n ${files} \n\n ${error.message} \n\n ${error.stack}`
     );
-    return { totalLanguageFiles, totalFiles, filesBlock };
+    return { totalLanguageFiles, totalFiles, fileTypes, filesBlock };
   }
-}
-
-function createRangeArray(start, end) {
-  return Array(end - start + 1)
-    .fill()
-    .map((_, idx) => start + idx);
 }
 
 export async function generateNotionReadmeBlocks(readme, repo) {
@@ -656,27 +888,26 @@ export async function generateNotionReadmeBlocks(readme, repo) {
   }
 }
 
-export async function generatePackageDesriptionBlocks(packageObj, repo) {
-  if (!packageObj) return [];
+export async function generatePackageDesriptionBlocks(packageObj, repo, type = "app") {
+  let heading_2 = getNotionBlocks("heading_2");
+  heading_2.heading_2.color = "yellow";
+  heading_2.heading_2.rich_text[0].text.content = type === "dev" ? `[${Object.keys(packageObj).length}] Dev Packages Desciption` : `[${Object.keys(packageObj).length}] Packages Desciption`;
+  if (!packageObj) return heading_2;
 
   try {
-    const pd = Object.entries(packageObj).map(([key, value]) => {
-      return `${key}: "${value}"`;
+    const rows = Object.entries(packageObj).map(([key, value]) => {
+      return `"${key}" : "${value}"`;
     });
-    return {
-      type: 'code',
-      code: {
-        rich_text: chunkContent(pd, 10).map((item) => {
-          return {
-            type: 'text',
-            text: {
-              content: item.join('\n'),
-            },
-          };
-        }),
-        language: 'javascript',
-      },
-    };
+    let code = getNotionBlocks("code");
+    code.code.rich_text = rows.map((item) => {
+      let text = getNotionBlocks("text");
+      text.text.content = item + "\n";
+      return text;
+
+    }).slice(0, 100);
+    heading_2.heading_2.children = [code];
+
+    return heading_2;
   } catch (error) {
     await LoggerInstance.logError(
       `generatePackageDesriptionBlocks ${repo}: \n\n ${JSON.stringify(
@@ -688,22 +919,83 @@ export async function generatePackageDesriptionBlocks(packageObj, repo) {
 
 //****************************** HELPERS ********************* */
 
-async function addSitePicture(id) {
-  try {
-    const response = await notion.pages.update({
-      page_id: id,
-      properties: {
-        children: {
-          checkbox: true,
-        },
-      },
-    });
-  } catch (error) {
-    await LoggerInstance.logError(
-      `addSitePicture ${id}:\n\n  ${error.message} \n\n ${error.stack}`
-    );
+
+function getTypeIcon(language) {
+  const lng = language.toLowerCase();
+  let iconLanguage = lng;
+  if (lng === "javascript") {
+    iconLanguage = "js"
   }
+  if (lng === "objective-c") {
+    iconLanguage = "objectivec"
+  }
+  const url = `https://raw.githubusercontent.com/vscode-icons/vscode-icons/a6526a9b865babf8d661779a5d1fff67672fce89/icons/file_type_${iconLanguage}.svg`
+  return url;
 }
+function getExtentionData(item) {
+  return (item[0] === "." ? ext[item.slice(-(item.length - 1))] : ext[item]) || {};
+}
+
+function getNotionBlocks(type) {
+  if (type === "heading_2") {
+    return {
+      heading_2: {
+        rich_text: [
+          {
+            type: 'text',
+            text: {
+              content: '',
+            },
+          },
+        ],
+        children: [],
+        is_toggleable: true,
+      },
+    };
+  };
+  if (type === "heading_3") {
+    return {
+      heading_3: {
+        rich_text: [
+          {
+            type: 'text',
+            text: {
+              content: '',
+            },
+          },
+        ],
+        children: [],
+        is_toggleable: true,
+      },
+    };
+  };
+  if (type === "paragraph") {
+    return {
+      paragraph: {
+        rich_text: [],
+      },
+    };
+  };
+  if (type === "text") {
+    return {
+      type: 'text',
+      text: {
+        content: '',
+      },
+    };
+  };
+  if (type === "code") {
+    return {
+      type: 'code',
+      code: {
+        rich_text: [],
+        language: 'javascript',
+      },
+    };
+  };
+  return null;
+}
+
 
 function chunkContent(files, size) {
   const chunked_arr = [];

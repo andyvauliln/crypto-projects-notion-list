@@ -11,9 +11,12 @@ const octokit = new Octokit({
   auth: GITHUB_API_TOKEN,
 });
 
+// languages support js
+// [purescipt, elm, typescript, coffescript, nim, haxe,  amber, clojure, scala, ceylon, PharoJS, svelte, Haste, mint, dart]
+
 export async function getGihubRepos(
   githubLink,
-  laguages = 'language:javascript'
+  laguages = ''
 ) {
   const repos = [];
   const owner = githubLink.split('/')[3];
@@ -39,12 +42,15 @@ export async function getGihubRepos(
       );
 
       const packages = await getPackageJsonFromRepo(item.html_url);
+      if (!packages) return;
+
       const readme = await getMarkdownFromRepo(item.html_url);
       const filesData = await getGithubRepoFiles(
         owner,
         item.name,
         item.default_branch
       );
+      const languages = await getRepositoryLanguages(owner, item.name);
 
       const descr = parsePackageJson(packages, 'description');
       const projectPackages = parsePackageJson(packages, 'dependencies');
@@ -54,7 +60,8 @@ export async function getGihubRepos(
 
       const repo = {
         name: item.name,
-        language: item.language,
+        language: item.language || languages[0] || "",
+        languages: languages.length > 0 ? languages : item.language ? [item.language] : [],
         stars: item.stargazers_count,
         forks: item.forks_count,
         isFork: item.fork,
@@ -70,12 +77,12 @@ export async function getGihubRepos(
         default_branch: item.default_branch,
         commits: await getTotalCommits(owner, item.name),
         devPackages: devPackages ? Object.keys(devPackages) : [],
-        packages: packages ? Object.keys(projectPackages) : [],
+        packages: projectPackages ? Object.keys(projectPackages) : [],
         devPackagesDescr: devPackages
           ? await getPackageDescr(Object.keys(devPackages), item.name)
           : null,
         packageDescr: projectPackages
-          ? await getPackageDescr(Object.keys(packages), item.name)
+          ? await getPackageDescr(Object.keys(projectPackages), item.name)
           : null,
       };
       if (repo) {
@@ -125,7 +132,7 @@ export async function getGithubRepoFiles(
     return await getGithubRepoFiles(owner, repo, 'main', counter + 1);
   }
 }
-
+const notAllowedFormats = [".png", ".jpg", ".eot", ".ttf", ".woff", ".woff2", ".lock", ".jpeg", ".gif", ".icns", ".svg", ".ico", ".webp", ".gitkeep", ".map", ".gitignore"]
 export async function generateFileTypesMap(files, repo) {
   const types = {};
   try {
@@ -141,17 +148,23 @@ export async function generateFileTypesMap(files, repo) {
           ? [...types['.' + fileParts[1]], file]
           : [file];
       } else {
-        types[fileParts[fileParts.length - 1]] = types[
-          fileParts[fileParts.length - 1]
-        ]
-          ? [...types[fileParts[fileParts.length - 1]], file]
+        types["." + fileParts[fileParts.length - 1]] = types["." + fileParts[fileParts.length - 1]]
+          ? [...types["." + fileParts[fileParts.length - 1]], file]
           : [file];
       }
+      // else {
+      //   types[fileParts.slice(-2).join(".")] = types["." + fileParts.slice(-2).join(".")]
+      //     ? [...types["." + fileParts.slice(-2).join(".")], file]
+      //     : [file];
+      // }
     });
 
     let obj = {};
     Object.keys(types).forEach((key) => {
-      obj[key] = { count: types[key].length, files: types[key] };
+      if (notAllowedFormats.indexOf(key) === -1) {
+        obj[key] = { count: types[key].length, files: types[key] };
+      }
+
     });
     await LoggerInstance.logInfo(
       `generateFileTypesMap ${repo}:\n\n ${JSON.stringify(obj)}`,
@@ -161,6 +174,32 @@ export async function generateFileTypesMap(files, repo) {
   } catch (error) {
     await LoggerInstance.logError(
       `generateFileTypesMap ${repo} :\n\n ${JSON.stringify(files)}\n\n${error}`
+    );
+    return [];
+  }
+}
+
+export async function getRepositoryLanguages(owner, repo) {
+  const url = `https://api.github.com/repos/${owner}/${repo}/languages`;
+  try {
+
+    const languages = await octokit.request(
+      'GET /repos/{owner}/{repo}/languages',
+      {
+        owner: owner,
+        repo: repo,
+      }
+    );
+
+    if (languages && languages.data) {
+      return Object.keys(languages.data);
+    }
+
+
+    return [];
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getRepositoryLanguages(${owner}, ${repo}) \n\n ${error.message}\n\n${error.stack}`
     );
     return [];
   }
