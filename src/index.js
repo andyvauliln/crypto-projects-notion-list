@@ -2,6 +2,7 @@ import fs from 'fs/promises';
 import puppeteer from 'puppeteer-core';
 import { languages2 } from '../programming-langs2';
 import { getTokens } from './coinmarketcup';
+import { getNextjsObj, getTokensFromCryptoRank } from "./cryptoRankApi";
 import {
   getGihubRepos,
   getMarkdownFromRepo,
@@ -14,8 +15,8 @@ import {
 } from './notion';
 import { getSiteData } from './siteScraper';
 
-// ******************** DOWNLOAD TOKENS FROM COINMARKETCAP TO NOTION ***********************
 
+// **************************** MAIN **********************
 
 async function migrateFromCoinmarketCap() {
   const requestLimitPerDay = 333;
@@ -32,13 +33,13 @@ async function migrateFromCoinmarketCap() {
       for (let i = 0; i < tokens.length; i++) {
         await LoggerInstance.logInfo(
           'migrateFromCoinmarketCap START ADDING TOKEN TO NOTION: ' +
-            tokens[i].id +
-            ` (${tokens[i].name} )`
+          tokens[i].id +
+          ` (${tokens[i].name} )`
         );
         await addTokenToNotion(tokens[i]);
         await LoggerInstance.logInfo(
           'migrateFromCoinmarketCap TOKEN ADDED SUCCESFULY: ' +
-            ` (${tokens[i].name} )`
+          ` (${tokens[i].name} )`
         );
       }
     }
@@ -51,7 +52,6 @@ async function migrateFromCoinmarketCap() {
   }
 }
 
-// ******************** DOWNLOAD REPOS FROM GITHUB TO NOTION ***********************
 
 
 async function downloadProjectRepositories() {
@@ -72,7 +72,7 @@ async function downloadProjectRepositories() {
       for (let j = 0; j < tokens.length; j++) {
         await LoggerInstance.logInfo(
           'downloadProjectRepositories PROCESSING: ' +
-            `ID: ${tokens[j].properties.Id.number} TOKEN: ${tokens[j].properties.Name.title[0].text.content}`
+          `ID: ${tokens[j].properties.Id.number} TOKEN: ${tokens[j].properties.Name.title[0].text.content}`
         );
         const githubLinks =
           tokens[j].properties.SourceCode.rich_text[0].plain_text.split(',');
@@ -86,7 +86,7 @@ async function downloadProjectRepositories() {
             await asyncForEach(repos, async (repo, index) => {
               await LoggerInstance.logInfo(
                 `downloadProjectRepositories TRYING TO SAVE REPO TO NOTION ${repo.name}: \n\n` +
-                  JSON.stringify(repo),
+                JSON.stringify(repo),
                 false
               );
               await addRepsoitoryToNotion(tokens[j], repo);
@@ -108,24 +108,6 @@ async function downloadProjectRepositories() {
   }
 }
 
-
-// ***************** UTILS ***************
-async function asyncForEach(array, callback) {
-  for (let index = 0; index < array.length; index++) {
-    await callback(array[index], index, array);
-  }
-}
-async function generateJsonExtentationFile() {
-  let tempObj = {};
-  Object.entries(languages2).forEach(([key, value]) => {
-    tempObj[value.defaultExtension] = { name: key, ids: value.ids };
-    return tempObj;
-  });
-  await fs.writeFile(
-    '/Users/andreivaulin/Projects/crypto-projects-notion-list/ext.json',
-    JSON.stringify(tempObj)
-  );
-}
 
 async function scrapSiteData() {
   const requestsAmount = 1;
@@ -185,6 +167,38 @@ async function scrapSiteData() {
   }
 }
 
+async function migrateFromCryptoRank() {
+  try {
+    await LoggerInstance.cleanLogs();
+
+    const tokens = getTokensFromCryptoRank();
+    const categories = getCategoriesFromCryptoRank();
+    const tags = getTegs
+
+    const resp = await getNextjsObj("https://cryptorank.io/funds");
+    //LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(Object.keys(resp))}`);
+    const funds = resp.funds.props.pageProps.funds.map(r => {
+      return {
+        name: r.name,
+        slug: r.slug,
+        id: r.id,
+      }
+    })
+    await asyncForEach(funds.slice(0, 1), async (item) => {
+      const fund = await getNextjsObj(`https://cryptorank.io/funds/${item.slug}`);
+      //await addFundToNotion(item);
+    })
+    await LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(funds)}`);
+    resp.browser.close();
+    await LoggerInstance.logInfo('migrateFromCryptoRank DONE');
+  } catch (error) {
+    await LoggerInstance.logError(
+      `migrateFromCryptoRank \n\n ${error.message}, \n\n ${error.stack}`
+    );
+  }
+}
+
+
 
 // ***************** RUN ***************
 
@@ -192,6 +206,7 @@ async function scrapSiteData() {
 // await downloadProjectRepositories();
 // await generateJsonExtentationFile();
 // await scrapSiteData()
+await migrateFromCryptoRank();
 
 
 
@@ -199,6 +214,25 @@ async function scrapSiteData() {
 
 
 // **************** TESTS *****************
+
+
+// ***************** UTILS ***************
+async function asyncForEach(array, callback) {
+  for (let index = 0; index < array.length; index++) {
+    await callback(array[index], index, array);
+  }
+}
+async function generateJsonExtentationFile() {
+  let tempObj = {};
+  Object.entries(languages2).forEach(([key, value]) => {
+    tempObj[value.defaultExtension] = { name: key, ids: value.ids };
+    return tempObj;
+  });
+  await fs.writeFile(
+    '/Users/andreivaulin/Projects/crypto-projects-notion-list/ext.json',
+    JSON.stringify(tempObj)
+  );
+}
 
 async function testRepo() {
   const links = ['https://github.com/casinocoin/casinocoin-mobile'];
