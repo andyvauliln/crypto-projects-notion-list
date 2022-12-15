@@ -3,8 +3,6 @@ import fs2 from 'fs';
 import fs from 'fs/promises';
 import puppeteer from 'puppeteer';
 import fullPageScreenshot from 'puppeteer-full-page-screenshot';
-import util from 'util';
-import ext from '../ext.json';
 import LoggerInstance from './loging.js';
 
 

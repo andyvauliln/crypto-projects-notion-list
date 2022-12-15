@@ -8,7 +8,7 @@ import { markdownToBlocks } from './notionParserJs/index.js';
 
 dotenv.config();
 
-const { NOTION_API_TOKEN, NOTION_TOKENS_DATABASE_ID, NOTION_JS_DATABASE_ID } =
+const { NOTION_API_TOKEN, NOTION_COINMARKETCUP_DATABASE_ID, NOTION_JS_DATABASE_ID } =
   process.env;
 
 const notion = new Client({
@@ -21,7 +21,7 @@ export async function getNotionTokensWithSites(startId = 0, limit = 100) {
   let response;
   try {
     response = await notion.databases.query({
-      database_id: NOTION_TOKENS_DATABASE_ID,
+      database_id: NOTION_COINMARKETCUP_DATABASE_ID,
       sorts: [
         {
           property: 'Id',
@@ -65,7 +65,7 @@ export async function getNotionTokensWithSourceCode(startId = 0, limit = 100) {
   let response;
   try {
     response = await notion.databases.query({
-      database_id: NOTION_TOKENS_DATABASE_ID,
+      database_id: NOTION_COINMARKETCUP_DATABASE_ID,
       page_size: limit,
       sorts: [
         {
@@ -109,7 +109,7 @@ export async function getLastTokenId() {
   let response;
   try {
     response = await notion.databases.query({
-      database_id: NOTION_TOKENS_DATABASE_ID,
+      database_id: NOTION_COINMARKETCUP_DATABASE_ID,
       sorts: [
         {
           property: 'Id',
@@ -131,7 +131,7 @@ export async function getLastContentDowloadedTokenId() {
   let response;
   try {
     response = await notion.databases.query({
-      database_id: NOTION_TOKENS_DATABASE_ID,
+      database_id: NOTION_COINMARKETCUP_DATABASE_ID,
       sorts: [
         {
           property: 'Id',
@@ -191,7 +191,7 @@ export async function addTokenToNotion(notionItem) {
     });
     const notionObj = {
       parent: {
-        database_id: NOTION_TOKENS_DATABASE_ID,
+        database_id: NOTION_COINMARKETCUP_DATABASE_ID,
       },
       icon: {
         external: {
@@ -735,6 +735,154 @@ export async function addSiteContentToNotion(token, repository) {
     );
     await LoggerInstance.makeReport(repository, error.message);
     throw new Error(`REPO NOT ADDED ${token.properties.Id.number}`);
+  }
+}
+export async function addFundToNotion(fund) {
+  let notionObj = {};
+  try {
+
+
+    notionObj = {
+      parent: {
+        database_id: NOTION_FUNDS_DATABASE_ID,
+      },
+      icon: {
+        external: {
+          url: getTypeIcon(repository.language),
+        },
+      },
+      properties: {
+        Id: {
+          number: token.properties.Id.number,
+        },
+        RepositoryName: {
+          title: [
+            {
+              text: {
+                content: repository.name,
+              },
+            },
+          ],
+        },
+        ProjectName: {
+          relation: [
+            {
+              id: token.id,
+            },
+          ],
+        },
+        Repository: {
+          url: repository.url,
+        },
+        License: {
+          select: {
+            name: repository.license
+              ? capitalizeFirstLetter(repository.license)
+              : 'No License',
+          },
+        },
+        Topics: {
+          multi_select:
+            repository.topics && Array.isArray(repository.topics)
+              ? repository.topics.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        Languages: {
+          multi_select:
+            repository.languages && Array.isArray(repository.languages)
+              ? repository.languages.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        Keywords: {
+          multi_select:
+            repository.keywords && Array.isArray(repository.keywords)
+              ? repository.keywords.map((r) => {
+                return { name: r };
+              })
+              : [],
+        },
+        IsFork: {
+          checkbox: repository.isFork,
+        },
+        Description: {
+          rich_text: [
+            {
+              type: 'text',
+              text: {
+                content: repository.description
+                  ? repository.description.slice(0, 2000)
+                  : '',
+              },
+            },
+          ],
+        },
+        Packages: {
+          multi_select:
+            repository.packages && Array.isArray(repository.packages)
+              ? repository.packages
+                .map((r) => {
+                  return { name: r };
+                })
+                .slice(0, 100)
+              : [],
+        },
+        DevPackages: {
+          multi_select:
+            repository.devPackages && Array.isArray(repository.devPackages)
+              ? repository.devPackages
+                .map((r) => {
+                  return { name: r };
+                })
+                .slice(0, 100)
+              : [],
+        },
+        FileTypes: {
+          multi_select: files.fileTypes,
+        },
+        Language: { select: { name: repository.language || 'null' } },
+        HomePage: {
+          url: repository.homepage || null,
+        },
+        Commits: {
+          number: repository.commits,
+        },
+        Stars: {
+          number: repository.stars,
+        },
+        TotalFiles: {
+          number: files.totalFiles,
+        },
+        TotalLanguageFiles: {
+          number: files.totalLanguageFiles,
+        },
+        Forks: {
+          number: repository.forks,
+        },
+        LastCommitDate: {
+          date: {
+            start: repository.lastCommitDate.slice(0, 10),
+          },
+        },
+      },
+    };
+    const createdPage = await notion.pages.create(notionObj);
+    if (createdPage && createdPage.id) {
+      await LoggerInstance.logInfo(
+        `addFundToNotion: FUND SAVIED TO NOTION: ${fund.id} ${fund.name}`
+      );
+      await LoggerInstance.makeReport(repository);
+    }
+  } catch (error) {
+    await LoggerInstance.logError(
+      `addFundToNotion(Fund: ${fund.id} - ${fund.name}) \n\n ${"https://cryptorank.io/funds/" + fund.slug} \n\n\n
+      ${JSON.stringify(notionObj)} \n\n  ${error.message} \n\n ${error.stack}`
+    );
+    await LoggerInstance.makeReport(repository, error.message);
+    throw new Error(`FUND NOT ADDED ${fund.id} ${fund.name}`);
   }
 }
 

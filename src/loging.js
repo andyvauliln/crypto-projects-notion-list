@@ -19,7 +19,7 @@ class Logger {
       '\n\n\n';
     await fs.appendFile(this.logFile, message);
     if (isConsoleLog) {
-      console.log(message);
+      console.dir(message, { depth: null });
     }
   }
 
@@ -29,7 +29,7 @@ class Logger {
       message +
       '\n\n\n';
     await fs.appendFile(this.logFile, message);
-    console.log(message);
+    console.dir(message, { depth: null });
   }
   async makeReport(obj, err = '') {
     try {

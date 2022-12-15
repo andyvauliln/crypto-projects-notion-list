@@ -1,0 +1,527 @@
+[
+    {
+        "key": "a-2-dao",
+        "name": "A2DAO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.a_2_dao1618385086432.png"
+    },
+    {
+        "key": "paid-network",
+        "name": "PAID Network",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.paid_network1654702759299.png"
+    },
+    {
+        "key": "infinity-pad",
+        "name": "Infinity Pad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.infinity_pad1631535414659.png"
+    },
+    {
+        "key": "bounce",
+        "name": "Bounce",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bounce1617206154170.png"
+    },
+    {
+        "key": "polkabridge",
+        "name": "Polkabridge",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.polkabridge1618297944540.png"
+    },
+    {
+        "key": "we-starter",
+        "name": "WeStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.we_starter1617021092915.png"
+    },
+    {
+        "key": "gnosis",
+        "name": "Gnosis",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.gnosis1617714848295.png"
+    },
+    {
+        "key": "zee-do",
+        "name": "ZeeDO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.zero_swap1617018056998.png"
+    },
+    {
+        "key": "maiar",
+        "name": "Maiar Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.maiar1656596232844.png"
+    },
+    {
+        "key": "swiss-borg-launchpad",
+        "name": "SwissBorg Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.swiss_borg_launchpad1670831561009.png"
+    },
+    {
+        "key": "lemonade",
+        "name": "Lemonade",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.lemonade1618300083531.png"
+    },
+    {
+        "key": "convergence-finance",
+        "name": "Convergence Finance",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.convergence1630588066292.png"
+    },
+    {
+        "key": "enjinstarter",
+        "name": "Enjinstarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.enjinstarter1636541766827.png"
+    },
+    {
+        "key": "gen-pad",
+        "name": "GenPad ",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.gen_pad1622198702312.png"
+    },
+    {
+        "key": "bybit-launchpad",
+        "name": "Bybit Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bybit1657014340832.png"
+    },
+    {
+        "key": "ftx-ieos",
+        "name": "FTX IEOs",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.ftx1657012913339.png"
+    },
+    {
+        "key": "launch-zone",
+        "name": "LaunchZone",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.launch_zone1631186088879.png"
+    },
+    {
+        "key": "trust-pad",
+        "name": "TrustPad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.trust_pad1629276525425.png"
+    },
+    {
+        "key": "starter",
+        "name": "Starter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.starter1629711489524.png"
+    },
+    {
+        "key": "kingdom-starter",
+        "name": "KingdomStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.kingdom_starter1662737425044.png"
+    },
+    {
+        "key": "poolz",
+        "name": "Poolz",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.poolz1617618711323.png"
+    },
+    {
+        "key": "okex-jumpstart",
+        "name": "OKX Jumpstart",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.okx1657013338568.png"
+    },
+    {
+        "key": "kucoin-spotlight",
+        "name": "Kucoin Spotlight",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.kucoin1657013154851.png"
+    },
+    {
+        "key": "huobi-primelist",
+        "name": "Huobi Primelist",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.huobi_global1657013489687.png"
+    },
+    {
+        "key": "lighthouse",
+        "name": "Lighthouse",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.lighthouse1633974823142.png"
+    },
+    {
+        "key": "eth-pad",
+        "name": "ETHPad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.eth_pad1628675983606.png"
+    },
+    {
+        "key": "miso",
+        "name": "MISO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.miso1628778580335.png"
+    },
+    {
+        "key": "babylons",
+        "name": "Babylons",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.babylons1662135507281.png"
+    },
+    {
+        "key": "zelwin-finance",
+        "name": "Zelwin Finance",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.zelwin_finance1633510482565.png"
+    },
+    {
+        "key": "lua-starter",
+        "name": "LuaStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.lua_starter1648115053891.png"
+    },
+    {
+        "key": "occam-razer",
+        "name": "OccamRazer",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.occam_razer1631718366933.png"
+    },
+    {
+        "key": "uplift",
+        "name": "Uplift",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.uplift1661434010284.png"
+    },
+    {
+        "key": "lightning",
+        "name": "Lightning",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.lightning1634044485664.png"
+    },
+    {
+        "key": "polkastarter",
+        "name": "Polkastarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.polkastarter1616778844074.png"
+    },
+    {
+        "key": "zendit",
+        "name": "ZENDIT",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.zendit_launchpad1617355853591.png"
+    },
+    {
+        "key": "bitfinex",
+        "name": "Bitfinex",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bitfinex1657018804732.png"
+    },
+    {
+        "key": "digifinex-launchpad",
+        "name": "DigiFinex Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.digi_finex1657016381957.png"
+    },
+    {
+        "key": "gateio-startup",
+        "name": "Gate.io Startup",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.gate_io1657013791498.png"
+    },
+    {
+        "key": "bitforex-turbo-starter",
+        "name": "Bitforex Turbo Starter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bitforex1657015327715.png"
+    },
+    {
+        "key": "seedify",
+        "name": "Seedify",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.seedify_fund1628590128604.png"
+    },
+    {
+        "key": "we-pad",
+        "name": "WePad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.we_pad1665662302073.png"
+    },
+    {
+        "key": "lbank",
+        "name": "Lbank",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.lbank1665560887004.png"
+    },
+    {
+        "key": "dao-maker",
+        "name": "DAO Maker",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.dao_maker1617200987249.png"
+    },
+    {
+        "key": "peakdefi",
+        "name": "PEAKDEFI",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.peakdefi1650044876593.png"
+    },
+    {
+        "key": "by-trade-launchpad",
+        "name": "ByTrade Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.by_trade_launchpad1670311569694.png"
+    },
+    {
+        "key": "gagarin",
+        "name": "GAGARIN",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.gagarin1654854441946.png"
+    },
+    {
+        "key": "cyber-fi",
+        "name": "CyberFi",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.cyber_fi1617966299675.png"
+    },
+    {
+        "key": "balancer",
+        "name": "Balancer",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.balancer1657018699045.png"
+    },
+    {
+        "key": "vent-finance",
+        "name": "Vent Finance",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.vent_finance1634637343401.png"
+    },
+    {
+        "key": "exmo",
+        "name": "EXMO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.exmo1657016528952.png"
+    },
+    {
+        "key": "bitmax",
+        "name": "AscendEX",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.ascend_ex1657016687601.png"
+    },
+    {
+        "key": "bittrex",
+        "name": "Bittrex",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bittrex1657016858735.png"
+    },
+    {
+        "key": "zb",
+        "name": "ZB.COM",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.zb_com1657017529481.png"
+    },
+    {
+        "key": "chain-boost",
+        "name": "ChainBoost",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.chain_boost1646637843314.png"
+    },
+    {
+        "key": "avalaunch",
+        "name": "Avalaunch",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.avalaunch1637250108353.png"
+    },
+    {
+        "key": "road-starter",
+        "name": "RoadStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.road_starter1645711423259.png"
+    },
+    {
+        "key": "sol-razr",
+        "name": "SolRazr",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.sol_razr1637599313904.png"
+    },
+    {
+        "key": "true-pnl",
+        "name": "TruePNL",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.true_pnl1635254646127.png"
+    },
+    {
+        "key": "game-zone",
+        "name": "GameZone",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.game_zone1642674326852.png"
+    },
+    {
+        "key": "oceanex",
+        "name": "OceanEx",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.ocean_ex1657015837517.png"
+    },
+    {
+        "key": "liquid",
+        "name": "Liquid",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.liquid1657016139631.png"
+    },
+    {
+        "key": "coinmetro-invest",
+        "name": "CoinMetro Invest",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.coin_metro1657018507793.png"
+    },
+    {
+        "key": "kommunitas",
+        "name": "Kommunitas",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.kommunitas1640849703240.png"
+    },
+    {
+        "key": "fire-starter",
+        "name": "FireStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.fire_starter1640191635892.png"
+    },
+    {
+        "key": "kick-pad",
+        "name": "KickPAD",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.kick_pad1617373210097.png"
+    },
+    {
+        "key": "bgogo",
+        "name": "Bgogo",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bgogo1657015571532.png"
+    },
+    {
+        "key": "koistarter",
+        "name": "Koistarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.koistarter1645781520580.png"
+    },
+    {
+        "key": "ava-xlauncher",
+        "name": "AvaXlauncher",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.ava_xlauncher1638465585504.png"
+    },
+    {
+        "key": "launchpool",
+        "name": "Launchpool",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.launchpool1618312098929.png"
+    },
+    {
+        "key": "synapse-network",
+        "name": "Synapse Network",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.synapse_network1638775571639.png"
+    },
+    {
+        "key": "fantom-starter",
+        "name": "FantomStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.fantom_starter1640365142189.png"
+    },
+    {
+        "key": "coinlist",
+        "name": "Coinlist",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.coinlist1657012085738.png"
+    },
+    {
+        "key": "bitmart-launchpad",
+        "name": "BitMart Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bit_mart1657017007187.png"
+    },
+    {
+        "key": "probit-ieo",
+        "name": "Probit IEO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.probit1657014824833.png"
+    },
+    {
+        "key": "tokensoft",
+        "name": "Tokensoft",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.tokensoft1657100595760.png"
+    },
+    {
+        "key": "game-fi",
+        "name": "GameFi",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.game_fi1630999343520.png"
+    },
+    {
+        "key": "binance-launchpad",
+        "name": "Binance Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.binance1657012608304.png"
+    },
+    {
+        "key": "impossible-finance",
+        "name": "Impossible Finance",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.impossible_finance1630413675047.png"
+    },
+    {
+        "key": "dao-launch",
+        "name": "DAOLaunch",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.dao_launch1647437024534.png"
+    },
+    {
+        "key": "trust-swap",
+        "name": "TrustSwap",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.trust_swap1617963398585.png"
+    },
+    {
+        "key": "game-station",
+        "name": "GameStation",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.game_station1643799987576.png"
+    },
+    {
+        "key": "republic",
+        "name": "Republic",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.republic1617268422697.png"
+    },
+    {
+        "key": "tron-pad",
+        "name": "TronPad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.tron_pad1626083338062.png"
+    },
+    {
+        "key": "spin-starter",
+        "name": "SpinStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.spin_starter1658157882690.png"
+    },
+    {
+        "key": "poloniex-launchbase",
+        "name": "Poloniex LaunchBase",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.poloniex1657018073326.png"
+    },
+    {
+        "key": "solanium",
+        "name": "Solanium",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.solanium1631265690626.png"
+    },
+    {
+        "key": "gamestarter",
+        "name": "Gamestarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.gamestarter1634739377375.png"
+    },
+    {
+        "key": "bsc-pad",
+        "name": "BSCPad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bsc_pad1617006883595.png"
+    },
+    {
+        "key": "red-kite",
+        "name": "Red Kite",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.red_kite1624888506774.png"
+    },
+    {
+        "key": "bull-perks",
+        "name": "BullPerks",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bull_perks1632147562950.png"
+    },
+    {
+        "key": "duck-starter",
+        "name": "DuckSTARTER",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.duck_starter1617008203152.png"
+    },
+    {
+        "key": "accele-raytor",
+        "name": "AcceleRaytor",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.accele_raytor1632734452915.png"
+    },
+    {
+        "key": "krystal-go",
+        "name": "Krystal GO",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.krystal_go1640598729518.png"
+    },
+    {
+        "key": "card-starter",
+        "name": "CardStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.card_starter1623752457441.png"
+    },
+    {
+        "key": "moon-starter",
+        "name": "MoonStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.moon_starter1638962261057.png"
+    },
+    {
+        "key": "pancake-swap",
+        "name": "PancakeSwap",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.pancake_swap1626863028459.png"
+    },
+    {
+        "key": "infinite-launch",
+        "name": "Infinite Launch",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.infinite_launch1640346080243.png"
+    },
+    {
+        "key": "bin-starter",
+        "name": "BinStarter",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bin_starter1640092035463.png"
+    },
+    {
+        "key": "star-launch",
+        "name": "StarLaunch",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.star_launch1640104916988.png"
+    },
+    {
+        "key": "bsclaunch",
+        "name": "BSClaunch",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bs_claunch1628511399782.png"
+    },
+    {
+        "key": "scaleswap",
+        "name": "Scaleswap",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.scaleswap1626679309482.png"
+    },
+    {
+        "key": "spores-network",
+        "name": "Spores Network",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.spores_network1668681642409.png"
+    },
+    {
+        "key": "roseon-finance",
+        "name": "Roseon Finance",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.roseon_finance1642426430958.png"
+    },
+    {
+        "key": "mxc-launchpad",
+        "name": "MEXC Launchpad",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.mexc_launchpad1669214016092.png"
+    },
+    {
+        "key": "bsc-station",
+        "name": "BSCStation",
+        "icon": "https://img.api.cryptorank.io/ido-platforms/60x60.bsc_station1628073925867.png"
+    }
+]

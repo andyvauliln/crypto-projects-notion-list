@@ -1,0 +1,2814 @@
+[
+  {
+    "id": 8,
+    "tokenPlatformName": "Cosmos",
+    "name": "Cosmos",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/cosmos1552581000995.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.cosmos1552581000995.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.cosmos1552581000995.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.cosmos1552581000995.png"
+    },
+    "slug": "cosmos",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.07,
+      "7D": -3.89,
+      "14D": -6.47,
+      "MTD": -5.9,
+      "30D": -16.44,
+      "3M": -40.37,
+      "6M": -39.18,
+      "1Y": -87.95,
+      "3Y": 100.49,
+      "YTD": -88.37,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 14,
+    "explorerUrl": null,
+    "marketCap": 1783628282,
+    "volume24h": 16742418,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 1814676946,
+      "volume24h": 15902451
+    },
+    "dominance": 0.04
+  },
+  {
+    "id": 15,
+    "tokenPlatformName": "Stake",
+    "name": "Stake",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/xdai chain1632751595750.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.xdai chain1632751595750.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.xdai chain1632751595750.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.xdai chain1632751595750.png"
+    },
+    "slug": "stake",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.88,
+      "7D": -0.83,
+      "14D": -3.5,
+      "MTD": -2.93,
+      "30D": -7.38,
+      "3M": -36.8,
+      "6M": -38.71,
+      "1Y": -85.67,
+      "3Y": 1114.67,
+      "YTD": -85.86,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 2,
+    "explorerUrl": null,
+    "marketCap": 1101337559,
+    "volume24h": 26112724,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 1123535441,
+      "volume24h": 26915878
+    },
+    "dominance": 0.03
+  },
+  {
+    "id": 23,
+    "tokenPlatformName": "Ontology",
+    "name": "Ontology",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ontology1603185874557.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ontology1603185874557.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ontology1603185874557.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ontology1603185874557.png"
+    },
+    "slug": "ontology",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.77,
+      "7D": -3.97,
+      "14D": -10.61,
+      "MTD": -4.04,
+      "30D": -2.66,
+      "3M": -40.33,
+      "6M": -3.57,
+      "1Y": -64.33,
+      "3Y": null,
+      "YTD": -66,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 23302914,
+    "volume24h": 3345142,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 23680225,
+      "volume24h": 1745057
+    },
+    "dominance": 0
+  },
+  {
+    "id": 24,
+    "tokenPlatformName": "SORA",
+    "name": "SORA",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/sora1593619817876.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.sora1593619817876.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.sora1593619817876.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.sora1593619817876.png"
+    },
+    "slug": "sora",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.29,
+      "7D": 0.45,
+      "14D": -0.24,
+      "MTD": -0.04,
+      "30D": 0.92,
+      "3M": -8.01,
+      "6M": -1.66,
+      "1Y": -21.69,
+      "3Y": 9.31,
+      "YTD": -23.23,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 3,
+    "explorerUrl": null,
+    "marketCap": 7246804992,
+    "volume24h": 174444610,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 7327652012,
+      "volume24h": 260661587
+    },
+    "dominance": 0.17
+  },
+  {
+    "id": 29,
+    "tokenPlatformName": "Near Protocol",
+    "name": "Near Protocol",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/near protocol1645006343968.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.near protocol1645006343968.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.near protocol1645006343968.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.near protocol1645006343968.png"
+    },
+    "slug": "near-protocol",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.02,
+      "14D": 0,
+      "MTD": 0.03,
+      "30D": 0.1,
+      "3M": -0.08,
+      "6M": 0.09,
+      "1Y": -0.07,
+      "3Y": 0.19,
+      "YTD": -0.07,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 12,
+    "explorerUrl": "https://explorer.near.org/accounts/",
+    "marketCap": 66070579955,
+    "volume24h": 13350063540,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 66046924943,
+      "volume24h": 14727764152
+    },
+    "dominance": 1.52
+  },
+  {
+    "id": 48,
+    "tokenPlatformName": "TomoChain",
+    "name": "TomoChain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/tomochain1583255705196.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.tomochain1583255705196.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.tomochain1583255705196.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.tomochain1583255705196.png"
+    },
+    "slug": "tomochain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.01,
+      "7D": 0.17,
+      "14D": 0.1,
+      "MTD": 0.16,
+      "30D": 0.19,
+      "3M": -0.34,
+      "6M": -0.38,
+      "1Y": -2.02,
+      "3Y": 4.86,
+      "YTD": -1.97,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 5,
+    "explorerUrl": "https://tomoscan.io/token/",
+    "marketCap": 115065147386,
+    "volume24h": 15494131996,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 114990669702,
+      "volume24h": 17466042782
+    },
+    "dominance": 2.64
+  },
+  {
+    "id": 38,
+    "tokenPlatformName": "Omni",
+    "name": "Omni",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/omni1524753598001.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.omni1524753598001.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.omni1524753598001.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.omni1524753598001.png"
+    },
+    "slug": "omni",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.05,
+      "7D": 0.03,
+      "14D": 0.03,
+      "MTD": 0.05,
+      "30D": 0.13,
+      "3M": -0.03,
+      "6M": 0.12,
+      "1Y": -0.07,
+      "3Y": 0.2,
+      "YTD": -0.07,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 66035598426,
+    "volume24h": 13334741016,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 66008143080,
+      "volume24h": 14725733078
+    },
+    "dominance": 1.52
+  },
+  {
+    "id": 16,
+    "tokenPlatformName": "MultiversX",
+    "name": "MultiversX",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/multivers_x1668674786258.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.multivers_x1668674786258.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.multivers_x1668674786258.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.multivers_x1668674786258.png"
+    },
+    "slug": "elrond-gold",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.04,
+      "7D": -0.09,
+      "14D": -0.12,
+      "MTD": -0.09,
+      "30D": -0.16,
+      "3M": -0.27,
+      "6M": -0.33,
+      "1Y": -0.08,
+      "3Y": 0.54,
+      "YTD": -0.1,
+      "CUSTOM": null
+    },
+    "gainers": 5,
+    "losers": 13,
+    "explorerUrl": "https://elrondscan.com/token/",
+    "marketCap": 45481800189,
+    "volume24h": 1397853643,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 45429806296,
+      "volume24h": 1808465241
+    },
+    "dominance": 1.04
+  },
+  {
+    "id": 10,
+    "tokenPlatformName": "Fantom",
+    "name": "Fantom",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/fantom1611564619788.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.fantom1611564619788.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.fantom1611564619788.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.fantom1611564619788.png"
+    },
+    "slug": "fantom",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.11,
+      "7D": 0.01,
+      "14D": -0.26,
+      "MTD": -0.17,
+      "30D": 0.3,
+      "3M": -0.92,
+      "6M": 0.24,
+      "1Y": -5.14,
+      "3Y": 11.98,
+      "YTD": -5.27,
+      "CUSTOM": null
+    },
+    "gainers": 39,
+    "losers": 142,
+    "explorerUrl": "https://ftmscan.com/token/",
+    "marketCap": 128811757843,
+    "volume24h": 15962793793,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 128905242865,
+      "volume24h": 18089261582
+    },
+    "dominance": 2.96
+  },
+  {
+    "id": 49,
+    "tokenPlatformName": "Kusama",
+    "name": "Kusama",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/kusama1595843628021.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.kusama1595843628021.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.kusama1595843628021.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.kusama1595843628021.png"
+    },
+    "slug": "kusama",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.18,
+      "7D": -2.19,
+      "14D": -8.42,
+      "MTD": -7.11,
+      "30D": -5.87,
+      "3M": -30.37,
+      "6M": -46.21,
+      "1Y": -94.34,
+      "3Y": null,
+      "YTD": -93.92,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 3,
+    "explorerUrl": null,
+    "marketCap": 35922287,
+    "volume24h": 510011,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 36861460,
+      "volume24h": 512068
+    },
+    "dominance": 0
+  },
+  {
+    "id": 50,
+    "tokenPlatformName": "Aspire",
+    "name": "Aspire",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/aspire1604659808873.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.aspire1604659808873.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.aspire1604659808873.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.aspire1604659808873.png"
+    },
+    "slug": "aspire",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 0,
+    "explorerUrl": null,
+    "marketCap": 0,
+    "volume24h": 12,
+    "yesterday": {
+      "time": 1671026400000,
+      "marketCap": 0,
+      "volume24h": 12
+    },
+    "dominance": 0
+  },
+  {
+    "id": 53,
+    "tokenPlatformName": "BitShares",
+    "name": "BitShares",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/bitshares1524754992471.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.bitshares1524754992471.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.bitshares1524754992471.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.bitshares1524754992471.png"
+    },
+    "slug": "bitshares",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.1,
+      "7D": 5.64,
+      "14D": 1.18,
+      "MTD": 2.64,
+      "30D": 9.22,
+      "3M": -0.67,
+      "6M": -2.28,
+      "1Y": -93.33,
+      "3Y": -87.7,
+      "YTD": -92.83,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 2,
+    "explorerUrl": null,
+    "marketCap": 226350,
+    "volume24h": 365647,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 228549,
+      "volume24h": 1018850
+    },
+    "dominance": 0
+  },
+  {
+    "id": 54,
+    "tokenPlatformName": "Polkadot",
+    "name": "Polkadot",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/polkadot1639725340958.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.polkadot1639725340958.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.polkadot1639725340958.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.polkadot1639725340958.png"
+    },
+    "slug": "polkadot",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.03,
+      "7D": -2.99,
+      "14D": -0.97,
+      "MTD": 1.99,
+      "30D": 9.35,
+      "3M": -38.62,
+      "6M": -35.56,
+      "1Y": -87.63,
+      "3Y": 1304.5,
+      "YTD": -86.43,
+      "CUSTOM": null
+    },
+    "gainers": 4,
+    "losers": 6,
+    "explorerUrl": null,
+    "marketCap": 407844407,
+    "volume24h": 17031040,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 414072127,
+      "volume24h": 26973567
+    },
+    "dominance": 0.01
+  },
+  {
+    "id": 55,
+    "tokenPlatformName": "Telos",
+    "name": "Telos",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/telos1622137152497.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.telos1622137152497.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.telos1622137152497.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.telos1622137152497.png"
+    },
+    "slug": "telos",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.03,
+      "7D": 0.03,
+      "14D": 0,
+      "MTD": 0.02,
+      "30D": 0.02,
+      "3M": 0.01,
+      "6M": 0,
+      "1Y": 0.01,
+      "3Y": -0.05,
+      "YTD": -0.01,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 5,
+    "explorerUrl": null,
+    "marketCap": 45168935228,
+    "volume24h": 2192032894,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 45076373590,
+      "volume24h": 2792241993
+    },
+    "dominance": 1.04
+  },
+  {
+    "id": 7,
+    "tokenPlatformName": "Avalanche C-Chain",
+    "name": "Avalanche C-Chain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/avalanche1629705441155.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.avalanche1629705441155.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.avalanche1629705441155.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.avalanche1629705441155.png"
+    },
+    "slug": "avalanche",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.18,
+      "7D": 0.05,
+      "14D": -0.16,
+      "MTD": -0.05,
+      "30D": 0.18,
+      "3M": -1.07,
+      "6M": 2.24,
+      "1Y": -6.8,
+      "3Y": 9.47,
+      "YTD": -7.04,
+      "CUSTOM": null
+    },
+    "gainers": 47,
+    "losers": 156,
+    "explorerUrl": "https://snowtrace.io/token/",
+    "marketCap": 153451062704,
+    "volume24h": 21372531472,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 153937622623,
+      "volume24h": 24657294918
+    },
+    "dominance": 3.52
+  },
+  {
+    "id": 62,
+    "tokenPlatformName": "GXChain",
+    "name": "GXChain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/gxchain1524753764123.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.gxchain1524753764123.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.gxchain1524753764123.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.gxchain1524753764123.png"
+    },
+    "slug": "gxchain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 0,
+    "volume24h": 69,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 0,
+      "volume24h": 1
+    },
+    "dominance": 0
+  },
+  {
+    "id": 63,
+    "tokenPlatformName": "Secret Network",
+    "name": "Secret Network",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/secret1604477271125.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.secret1604477271125.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.secret1604477271125.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.secret1604477271125.png"
+    },
+    "slug": "secret",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.03,
+      "7D": 0.01,
+      "14D": -0.01,
+      "MTD": 0.01,
+      "30D": 0.09,
+      "3M": -0.02,
+      "6M": 0.05,
+      "1Y": -0.1,
+      "3Y": 0.09,
+      "YTD": -0.11,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 111278571512,
+    "volume24h": 14722997850,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 111171661688,
+      "volume24h": 16531792378
+    },
+    "dominance": 2.55
+  },
+  {
+    "id": 74,
+    "tokenPlatformName": "Theta Network",
+    "name": "Theta Network",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/theta token1590061272947.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.theta token1590061272947.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.theta token1590061272947.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.theta token1590061272947.png"
+    },
+    "slug": "theta-token",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0,
+      "14D": -0.02,
+      "MTD": 0,
+      "30D": -0.01,
+      "3M": 0.01,
+      "6M": -0.01,
+      "1Y": 0,
+      "3Y": -0.02,
+      "YTD": -0.06,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 18555134762,
+    "volume24h": 5299392530,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 18797805772,
+      "volume24h": 6439046552
+    },
+    "dominance": 0.43
+  },
+  {
+    "id": 68,
+    "tokenPlatformName": "Flow",
+    "name": "Flow",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/flow1600856785709.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.flow1600856785709.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.flow1600856785709.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.flow1600856785709.png"
+    },
+    "slug": "flow",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 75.36,
+      "7D": -6.31,
+      "14D": 141.99,
+      "MTD": 156.97,
+      "30D": 108.35,
+      "3M": 13.87,
+      "6M": -23.26,
+      "1Y": -96.9,
+      "3Y": null,
+      "YTD": -96.55,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 0,
+    "explorerUrl": null,
+    "marketCap": 1950236,
+    "volume24h": 30150,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 1106337,
+      "volume24h": 21977
+    },
+    "dominance": 0
+  },
+  {
+    "id": 81,
+    "tokenPlatformName": "Kava",
+    "name": "Kava",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/kava1645007488335.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.kava1645007488335.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.kava1645007488335.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.kava1645007488335.png"
+    },
+    "slug": "kava",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.16,
+      "7D": -3.37,
+      "14D": -16.99,
+      "MTD": -17.18,
+      "30D": 29.94,
+      "3M": -41.6,
+      "6M": -47.95,
+      "1Y": -86.28,
+      "3Y": null,
+      "YTD": -87,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 2,
+    "explorerUrl": null,
+    "marketCap": 23166961,
+    "volume24h": 645351,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 23479072,
+      "volume24h": 740137
+    },
+    "dominance": 0
+  },
+  {
+    "id": 91,
+    "tokenPlatformName": "Aptos",
+    "name": "Aptos",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/aptos1666858687617.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.aptos1666858687617.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.aptos1666858687617.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.aptos1666858687617.png"
+    },
+    "slug": "aptos",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -14.9,
+      "7D": -5.01,
+      "14D": -11.82,
+      "MTD": -4.08,
+      "30D": -73.2,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 312495,
+    "volume24h": 16809,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 382557,
+      "volume24h": 14673
+    },
+    "dominance": 0
+  },
+  {
+    "id": 3,
+    "tokenPlatformName": "Ethereum",
+    "name": "Ethereum",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ethereum1524754015525.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ethereum1524754015525.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ethereum1524754015525.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ethereum1524754015525.png"
+    },
+    "slug": "ethereum",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.1,
+      "7D": -0.79,
+      "14D": -2.18,
+      "MTD": -1.92,
+      "30D": -0.08,
+      "3M": -3.58,
+      "6M": 14.63,
+      "1Y": -26.54,
+      "3Y": 756.66,
+      "YTD": -26.95,
+      "CUSTOM": null
+    },
+    "gainers": 672,
+    "losers": 1559,
+    "explorerUrl": "https://etherscan.io/token/",
+    "marketCap": 273766688833,
+    "volume24h": 24419061077,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 277056564794,
+      "volume24h": 28315071771
+    },
+    "dominance": 6.28
+  },
+  {
+    "id": 85,
+    "tokenPlatformName": "Oasis Network",
+    "name": "Oasis Network",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/oasis network1650874788066.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.oasis network1650874788066.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.oasis network1650874788066.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.oasis network1650874788066.png"
+    },
+    "slug": "oasis-network",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.03,
+      "7D": 0.02,
+      "14D": -0.01,
+      "MTD": 0.01,
+      "30D": 0.06,
+      "3M": -0.04,
+      "6M": 0.06,
+      "1Y": -0.18,
+      "3Y": 0.09,
+      "YTD": -0.2,
+      "CUSTOM": null
+    },
+    "gainers": 5,
+    "losers": 2,
+    "explorerUrl": "https://explorer.emerald.oasis.dev/token/",
+    "marketCap": 111384773666,
+    "volume24h": 15454103294,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 111280513619,
+      "volume24h": 17422383056
+    },
+    "dominance": 2.56
+  },
+  {
+    "id": 18,
+    "tokenPlatformName": "KardiaChain",
+    "name": "KardiaChain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/kardiachain1609154662651.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.kardiachain1609154662651.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.kardiachain1609154662651.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.kardiachain1609154662651.png"
+    },
+    "slug": "kardiachain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.01,
+      "14D": 0,
+      "MTD": 0.03,
+      "30D": 0.09,
+      "3M": 0.01,
+      "6M": 0.09,
+      "1Y": -0.05,
+      "3Y": 0.15,
+      "YTD": -0.06,
+      "CUSTOM": null
+    },
+    "gainers": 6,
+    "losers": 4,
+    "explorerUrl": "https://explorer.kardiachain.io/token/",
+    "marketCap": 84566326791,
+    "volume24h": 19431187985,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 84786667708,
+      "volume24h": 22141452016
+    },
+    "dominance": 1.94
+  },
+  {
+    "id": 11,
+    "tokenPlatformName": "Moonriver",
+    "name": "Moonriver",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/moonriver1630066969300.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.moonriver1630066969300.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.moonriver1630066969300.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.moonriver1630066969300.png"
+    },
+    "slug": "moonriver",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.22,
+      "7D": 0.04,
+      "14D": -0.22,
+      "MTD": 0.12,
+      "30D": 0.05,
+      "3M": -0.55,
+      "6M": 7.07,
+      "1Y": -7.48,
+      "3Y": 382.2,
+      "YTD": -7.96,
+      "CUSTOM": null
+    },
+    "gainers": 7,
+    "losers": 21,
+    "explorerUrl": "https://moonriver.moonscan.io/token/",
+    "marketCap": 152873178817,
+    "volume24h": 20688145984,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 153447486193,
+      "volume24h": 23873141382
+    },
+    "dominance": 3.51
+  },
+  {
+    "id": 12,
+    "tokenPlatformName": "Harmony",
+    "name": "Harmony",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/harmony1644408299550.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.harmony1644408299550.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.harmony1644408299550.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.harmony1644408299550.png"
+    },
+    "slug": "harmony",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.31,
+      "7D": -0.03,
+      "14D": -0.23,
+      "MTD": 0.11,
+      "30D": -0.26,
+      "3M": -1.24,
+      "6M": 7.33,
+      "1Y": -10.6,
+      "3Y": 363.76,
+      "YTD": -11.16,
+      "CUSTOM": null
+    },
+    "gainers": 10,
+    "losers": 27,
+    "explorerUrl": "https://explorer.harmony.one/address/",
+    "marketCap": 163035917408,
+    "volume24h": 21622194186,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 163750150733,
+      "volume24h": 24911837643
+    },
+    "dominance": 3.74
+  },
+  {
+    "id": 9,
+    "tokenPlatformName": "NEO",
+    "name": "NEO",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/neo1645006837175.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.neo1645006837175.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.neo1645006837175.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.neo1645006837175.png"
+    },
+    "slug": "neo",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.76,
+      "7D": 6.57,
+      "14D": 8.88,
+      "MTD": 13.28,
+      "30D": 33.01,
+      "3M": -6.54,
+      "6M": 94.72,
+      "1Y": -54,
+      "3Y": 138.67,
+      "YTD": -56,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 9,
+    "explorerUrl": "https://neo3.neotube.io/tokens/nep17/",
+    "marketCap": 102207322,
+    "volume24h": 6896424,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 102996501,
+      "volume24h": 7697017
+    },
+    "dominance": 0
+  },
+  {
+    "id": 65,
+    "tokenPlatformName": "AI Matrix System",
+    "name": "AI Matrix System",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ai_matrix_system1660205184994.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ai_matrix_system1660205184994.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ai_matrix_system1660205184994.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ai_matrix_system1660205184994.png"
+    },
+    "slug": "al-matrix-system",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -18.34,
+      "7D": 103.69,
+      "14D": 150.33,
+      "MTD": 152.12,
+      "30D": 165.5,
+      "3M": 169.9,
+      "6M": 143.85,
+      "1Y": -63.99,
+      "3Y": -59.46,
+      "YTD": -54.88,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": null,
+    "marketCap": 2324068,
+    "volume24h": 644059,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 2959745,
+      "volume24h": 2119367
+    },
+    "dominance": 0
+  },
+  {
+    "id": 21,
+    "tokenPlatformName": "Fusion",
+    "name": "Fusion",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/fusion1524754929195.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.fusion1524754929195.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.fusion1524754929195.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.fusion1524754929195.png"
+    },
+    "slug": "fusion",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -10.17,
+      "7D": -10.35,
+      "14D": -11.54,
+      "MTD": -4.99,
+      "30D": 62.38,
+      "3M": 75.22,
+      "6M": 98.76,
+      "1Y": -45.07,
+      "3Y": null,
+      "YTD": -36.34,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://fsnscan.com/token/",
+    "marketCap": 22797591,
+    "volume24h": 143501,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 25348354,
+      "volume24h": 107424
+    },
+    "dominance": 0
+  },
+  {
+    "id": 41,
+    "tokenPlatformName": "Tezos",
+    "name": "Tezos",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/tezos1524753775455.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.tezos1524753775455.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.tezos1524753775455.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.tezos1524753775455.png"
+    },
+    "slug": "tezos",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.82,
+      "7D": 3.19,
+      "14D": 8.12,
+      "MTD": 10.1,
+      "30D": -26.43,
+      "3M": -62.33,
+      "6M": -86.95,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 0,
+    "explorerUrl": "https://tzkt.io/",
+    "marketCap": 375284,
+    "volume24h": 14929,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 371652,
+      "volume24h": 25591
+    },
+    "dominance": 0
+  },
+  {
+    "id": 1,
+    "tokenPlatformName": "Solana",
+    "name": "Solana",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/solana1606979093056.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.solana1606979093056.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.solana1606979093056.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.solana1606979093056.png"
+    },
+    "slug": "solana",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.09,
+      "7D": 0.13,
+      "14D": 0.1,
+      "MTD": 0.18,
+      "30D": 0.08,
+      "3M": -1.71,
+      "6M": 1.08,
+      "1Y": -4.71,
+      "3Y": 9.93,
+      "YTD": -4.79,
+      "CUSTOM": null
+    },
+    "gainers": 97,
+    "losers": 144,
+    "explorerUrl": "https://solscan.io/token/",
+    "marketCap": 145817523182,
+    "volume24h": 21196970446,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 146183818420,
+      "volume24h": 24451981322
+    },
+    "dominance": 3.35
+  },
+  {
+    "id": 19,
+    "tokenPlatformName": "Klaytn ",
+    "name": "Klaytn ",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/klaytn 1645005800238.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.klaytn 1645005800238.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.klaytn 1645005800238.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.klaytn 1645005800238.png"
+    },
+    "slug": "klaytn",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.05,
+      "7D": -0.67,
+      "14D": -3.91,
+      "MTD": -4.32,
+      "30D": -1.3,
+      "3M": 12.35,
+      "6M": 16.49,
+      "1Y": -43.06,
+      "3Y": 80.07,
+      "YTD": -43.19,
+      "CUSTOM": null
+    },
+    "gainers": 25,
+    "losers": 29,
+    "explorerUrl": "https://scope.klaytn.com/token/",
+    "marketCap": 24537393130,
+    "volume24h": 1299572231,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 25146316592,
+      "volume24h": 1601196102
+    },
+    "dominance": 0.56
+  },
+  {
+    "id": 87,
+    "tokenPlatformName": "Vite",
+    "name": "Vite",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/vite1662723917806.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.vite1662723917806.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.vite1662723917806.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.vite1662723917806.png"
+    },
+    "slug": "vite",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -3.07,
+      "7D": -15.36,
+      "14D": -14.22,
+      "MTD": -19.37,
+      "30D": -24.97,
+      "3M": -57.49,
+      "6M": 20.02,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://vitescan.io/token/",
+    "marketCap": 5476483,
+    "volume24h": 1182635,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 5570160,
+      "volume24h": 1074221
+    },
+    "dominance": 0
+  },
+  {
+    "id": 61,
+    "tokenPlatformName": "Arbitrum",
+    "name": "Arbitrum",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/arbitrum1649168196637.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.arbitrum1649168196637.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.arbitrum1649168196637.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.arbitrum1649168196637.png"
+    },
+    "slug": "arbitrum",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.23,
+      "7D": 0.07,
+      "14D": 0.05,
+      "MTD": 0.22,
+      "30D": 0.54,
+      "3M": -0.77,
+      "6M": 3.01,
+      "1Y": -6.9,
+      "3Y": 12.67,
+      "YTD": -7.15,
+      "CUSTOM": null
+    },
+    "gainers": 20,
+    "losers": 51,
+    "explorerUrl": "https://arbiscan.io/token/",
+    "marketCap": 132235684380,
+    "volume24h": 15888353591,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 132554449728,
+      "volume24h": 18008946810
+    },
+    "dominance": 3.04
+  },
+  {
+    "id": 71,
+    "tokenPlatformName": "KCC",
+    "name": "KCC",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/kcc1658912898897.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.kcc1658912898897.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.kcc1658912898897.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.kcc1658912898897.png"
+    },
+    "slug": "kucoin-shares",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.04,
+      "14D": 0.01,
+      "MTD": 0.03,
+      "30D": 0,
+      "3M": -0.14,
+      "6M": -0.15,
+      "1Y": -0.41,
+      "3Y": 3.82,
+      "YTD": -0.41,
+      "CUSTOM": null
+    },
+    "gainers": 6,
+    "losers": 4,
+    "explorerUrl": "https://explorer.kcc.io/en/token/",
+    "marketCap": 111803678362,
+    "volume24h": 15449856781,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 111686601186,
+      "volume24h": 17418602354
+    },
+    "dominance": 2.57
+  },
+  {
+    "id": 17,
+    "tokenPlatformName": "Metis Andromeda",
+    "name": "Metis Andromeda",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/metisdao1620818079938.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.metisdao1620818079938.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.metisdao1620818079938.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.metisdao1620818079938.png"
+    },
+    "slug": "metisdao",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.01,
+      "7D": 0.17,
+      "14D": 0.08,
+      "MTD": 0.15,
+      "30D": 0.19,
+      "3M": -0.36,
+      "6M": -0.29,
+      "1Y": -1.97,
+      "3Y": 4.66,
+      "YTD": -1.94,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 10,
+    "explorerUrl": "https://andromeda-explorer.metis.io/token/",
+    "marketCap": 120382091771,
+    "volume24h": 15595841885,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 120366545165,
+      "volume24h": 17642379901
+    },
+    "dominance": 2.76
+  },
+  {
+    "id": 25,
+    "tokenPlatformName": "Qtum",
+    "name": "Qtum",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/qtum1524754153104.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.qtum1524754153104.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.qtum1524754153104.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.qtum1524754153104.png"
+    },
+    "slug": "qtum",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.63,
+      "7D": -2.14,
+      "14D": -5.62,
+      "MTD": -4.38,
+      "30D": 1.53,
+      "3M": -28.57,
+      "6M": -25.08,
+      "1Y": -74.96,
+      "3Y": 327.12,
+      "YTD": -73.14,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 1,
+    "explorerUrl": "https://qtum.info/qrc20/",
+    "marketCap": 78676092,
+    "volume24h": 94099,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 80400969,
+      "volume24h": 108006
+    },
+    "dominance": 0
+  },
+  {
+    "id": 45,
+    "tokenPlatformName": "OKC",
+    "name": "OKC",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/okc1659541414752.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.okc1659541414752.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.okc1659541414752.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.okc1659541414752.png"
+    },
+    "slug": "okexchain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.05,
+      "7D": 0.17,
+      "14D": 0.15,
+      "MTD": 0.17,
+      "30D": 0.25,
+      "3M": 0.21,
+      "6M": 0.19,
+      "1Y": -0.17,
+      "3Y": 0.08,
+      "YTD": -0.22,
+      "CUSTOM": null
+    },
+    "gainers": 7,
+    "losers": 3,
+    "explorerUrl": "https://www.oklink.com/en/okc/token/",
+    "marketCap": 130195019851,
+    "volume24h": 20039591673,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 130308568873,
+      "volume24h": 22990170080
+    },
+    "dominance": 2.99
+  },
+  {
+    "id": 30,
+    "tokenPlatformName": "EOS",
+    "name": "EOS",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/eos1524754989992.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.eos1524754989992.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.eos1524754989992.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.eos1524754989992.png"
+    },
+    "slug": "eos",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.77,
+      "7D": -8.15,
+      "14D": -11.58,
+      "MTD": -11.61,
+      "30D": 62.69,
+      "3M": 2.42,
+      "6M": 33.06,
+      "1Y": -59.03,
+      "3Y": 293.31,
+      "YTD": -58.31,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 3,
+    "explorerUrl": "https://bloks.io/tokens/",
+    "marketCap": 97555274,
+    "volume24h": 26252040,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 98359191,
+      "volume24h": 45198522
+    },
+    "dominance": 0
+  },
+  {
+    "id": 31,
+    "tokenPlatformName": "Aurora",
+    "name": "Aurora",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/aurora1636629298801.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.aurora1636629298801.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.aurora1636629298801.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.aurora1636629298801.png"
+    },
+    "slug": "aurora-evm",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0,
+      "7D": 0.14,
+      "14D": 0.13,
+      "MTD": 0.21,
+      "30D": 0.24,
+      "3M": -0.34,
+      "6M": -0.21,
+      "1Y": -2.15,
+      "3Y": 4.66,
+      "YTD": -2.18,
+      "CUSTOM": null
+    },
+    "gainers": 4,
+    "losers": 18,
+    "explorerUrl": "https://aurorascan.dev/token/",
+    "marketCap": 121772395867,
+    "volume24h": 15691730281,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 121764801480,
+      "volume24h": 17761886754
+    },
+    "dominance": 2.8
+  },
+  {
+    "id": 33,
+    "tokenPlatformName": "Velas",
+    "name": "Velas",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/velas1637323115525.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.velas1637323115525.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.velas1637323115525.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.velas1637323115525.png"
+    },
+    "slug": "velas",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.2,
+      "7D": -0.07,
+      "14D": -0.24,
+      "MTD": -0.17,
+      "30D": -0.66,
+      "3M": -2.85,
+      "6M": -2.97,
+      "1Y": -7.26,
+      "3Y": 61.73,
+      "YTD": -7.23,
+      "CUSTOM": null
+    },
+    "gainers": 4,
+    "losers": 6,
+    "explorerUrl": "https://explorer.velas.com/address/",
+    "marketCap": 144155796332,
+    "volume24h": 20201019724,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 144648233903,
+      "volume24h": 23194590510
+    },
+    "dominance": 3.31
+  },
+  {
+    "id": 2,
+    "tokenPlatformName": "Terra Classic",
+    "name": "Terra Classic",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/terra classic1654166101471.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.terra classic1654166101471.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.terra classic1654166101471.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.terra classic1654166101471.png"
+    },
+    "slug": "luna",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.01,
+      "7D": 0.26,
+      "14D": 0.72,
+      "MTD": 0.84,
+      "30D": 0.54,
+      "3M": -0.54,
+      "6M": 11.25,
+      "1Y": -4.57,
+      "3Y": 0.2,
+      "YTD": -4.52,
+      "CUSTOM": null
+    },
+    "gainers": 5,
+    "losers": 15,
+    "explorerUrl": "https://finder.terra.money/classic/address/",
+    "marketCap": 5523836838,
+    "volume24h": 912596633,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 5589589118,
+      "volume24h": 1168333136
+    },
+    "dominance": 0.13
+  },
+  {
+    "id": 6,
+    "tokenPlatformName": "TRON",
+    "name": "TRON",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/tron1608810047161.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.tron1608810047161.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.tron1608810047161.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.tron1608810047161.png"
+    },
+    "slug": "tron",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.01,
+      "7D": 0,
+      "14D": -0.13,
+      "MTD": -0.11,
+      "30D": 0.2,
+      "3M": 0.21,
+      "6M": 0.07,
+      "1Y": -0.72,
+      "3Y": 1.3,
+      "YTD": -0.69,
+      "CUSTOM": null
+    },
+    "gainers": 24,
+    "losers": 36,
+    "explorerUrl": "https://tronscan.org/#/token20/",
+    "marketCap": 115475471927,
+    "volume24h": 15725527345,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 115189482332,
+      "volume24h": 17668530354
+    },
+    "dominance": 2.65
+  },
+  {
+    "id": 13,
+    "tokenPlatformName": "Celo",
+    "name": "Celo",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/celo1629705547298.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.celo1629705547298.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.celo1629705547298.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.celo1629705547298.png"
+    },
+    "slug": "celo",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.16,
+      "7D": 2.41,
+      "14D": 1.82,
+      "MTD": -0.66,
+      "30D": 27.73,
+      "3M": -6.38,
+      "6M": -3.43,
+      "1Y": -75.9,
+      "3Y": 1822.79,
+      "YTD": -80.73,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 5,
+    "explorerUrl": "https://explorer.celo.org/token/",
+    "marketCap": 1023816661,
+    "volume24h": 818251368,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 1030693588,
+      "volume24h": 970551756
+    },
+    "dominance": 0.02
+  },
+  {
+    "id": 14,
+    "tokenPlatformName": "HECO Chain",
+    "name": "HECO Chain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/heco_chain1658763401630.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.heco_chain1658763401630.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.heco_chain1658763401630.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.heco_chain1658763401630.png"
+    },
+    "slug": "huobi-token",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.76,
+      "7D": -0.35,
+      "14D": -0.79,
+      "MTD": -0.87,
+      "30D": 1.02,
+      "3M": -1,
+      "6M": 5.41,
+      "1Y": -19.55,
+      "3Y": 15.85,
+      "YTD": -19.61,
+      "CUSTOM": null
+    },
+    "gainers": 9,
+    "losers": 40,
+    "explorerUrl": "https://www.hecoinfo.com/en-us/token/",
+    "marketCap": 93214755526,
+    "volume24h": 14153326970,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 93732359758,
+      "volume24h": 15552163167
+    },
+    "dominance": 2.14
+  },
+  {
+    "id": 20,
+    "tokenPlatformName": "Achain",
+    "name": "Achain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/achain1524754040873.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.achain1524754040873.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.achain1524754040873.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.achain1524754040873.png"
+    },
+    "slug": "achain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -2.8,
+      "7D": -5.25,
+      "14D": -4.34,
+      "MTD": 2.46,
+      "30D": -10.26,
+      "3M": -19.78,
+      "6M": -7.73,
+      "1Y": -73.56,
+      "3Y": -82.22,
+      "YTD": -74.15,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://browser.achain.com/contract.html#/contractInfo/",
+    "marketCap": 394784,
+    "volume24h": 404335,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 404847,
+      "volume24h": 415767
+    },
+    "dominance": 0
+  },
+  {
+    "id": 34,
+    "tokenPlatformName": "Ronin",
+    "name": "Ronin",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ronin1643374012049.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ronin1643374012049.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ronin1643374012049.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ronin1643374012049.png"
+    },
+    "slug": "ronin",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.06,
+      "7D": -0.11,
+      "14D": 0.2,
+      "MTD": 0.23,
+      "30D": 0.08,
+      "3M": -0.81,
+      "6M": -0.89,
+      "1Y": -1.94,
+      "3Y": -0.05,
+      "YTD": -1.95,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 4,
+    "explorerUrl": "https://explorer.roninchain.com/token/",
+    "marketCap": 46189621155,
+    "volume24h": 2148372924,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 46135322400,
+      "volume24h": 2735938210
+    },
+    "dominance": 1.06
+  },
+  {
+    "id": 36,
+    "tokenPlatformName": "Ardor",
+    "name": "Ardor",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ardor1660211205818.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ardor1660211205818.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ardor1660211205818.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ardor1660211205818.png"
+    },
+    "slug": "ardor",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -3.18,
+      "7D": 3.32,
+      "14D": -2.66,
+      "MTD": -5.44,
+      "30D": 33.48,
+      "3M": 4.42,
+      "6M": -4.74,
+      "1Y": -69.02,
+      "3Y": -74.82,
+      "YTD": -68.31,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://ardor.tools/asset/",
+    "marketCap": 4487564,
+    "volume24h": 14725,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 4771248,
+      "volume24h": 27420
+    },
+    "dominance": 0
+  },
+  {
+    "id": 42,
+    "tokenPlatformName": "GoChain",
+    "name": "GoChain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/gochain1528901226141.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.gochain1528901226141.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.gochain1528901226141.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.gochain1528901226141.png"
+    },
+    "slug": "gochain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 0,
+    "explorerUrl": "https://explorer.gochain.io/addr/",
+    "marketCap": 0,
+    "volume24h": 1,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 0,
+      "volume24h": 1
+    },
+    "dominance": 0
+  },
+  {
+    "id": 43,
+    "tokenPlatformName": "IoTeX",
+    "name": "IoTeX",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/iotex1596011462871.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.iotex1596011462871.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.iotex1596011462871.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.iotex1596011462871.png"
+    },
+    "slug": "iotex",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.01,
+      "7D": 0.15,
+      "14D": 0.08,
+      "MTD": 0.14,
+      "30D": 0.16,
+      "3M": -0.29,
+      "6M": -0.3,
+      "1Y": -1.81,
+      "3Y": 5.01,
+      "YTD": -1.78,
+      "CUSTOM": null
+    },
+    "gainers": 4,
+    "losers": 7,
+    "explorerUrl": "https://iotexscan.io/token/",
+    "marketCap": 133793105129,
+    "volume24h": 20872403004,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 133958394594,
+      "volume24h": 24003674711
+    },
+    "dominance": 3.07
+  },
+  {
+    "id": 44,
+    "tokenPlatformName": "Wanchain",
+    "name": "Wanchain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/wanchain1524753560719.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.wanchain1524753560719.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.wanchain1524753560719.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.wanchain1524753560719.png"
+    },
+    "slug": "wanchain",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.03,
+      "7D": 0.03,
+      "14D": 0,
+      "MTD": 0.02,
+      "30D": 0.02,
+      "3M": 0.01,
+      "6M": -0.01,
+      "1Y": 0.01,
+      "3Y": -0.05,
+      "YTD": -0.01,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 2,
+    "explorerUrl": "https://wanscan.org/token/",
+    "marketCap": 45171143155,
+    "volume24h": 1386717154,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 45078579756,
+      "volume24h": 1804740316
+    },
+    "dominance": 1.04
+  },
+  {
+    "id": 51,
+    "tokenPlatformName": "ICON",
+    "name": "ICON",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/icon1645092468011.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.icon1645092468011.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.icon1645092468011.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.icon1645092468011.png"
+    },
+    "slug": "icon",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://tracker.icon.foundation/token/",
+    "marketCap": 0,
+    "volume24h": 47643,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 0,
+      "volume24h": 55830
+    },
+    "dominance": 0
+  },
+  {
+    "id": 52,
+    "tokenPlatformName": "Moonbeam",
+    "name": "Moonbeam",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/glimmer1629096935363.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.glimmer1629096935363.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.glimmer1629096935363.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.glimmer1629096935363.png"
+    },
+    "slug": "glimmer",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.19,
+      "7D": 0.04,
+      "14D": -0.22,
+      "MTD": 0.15,
+      "30D": -0.05,
+      "3M": -0.5,
+      "6M": 7.09,
+      "1Y": -7.1,
+      "3Y": 375.36,
+      "YTD": -7.56,
+      "CUSTOM": null
+    },
+    "gainers": 12,
+    "losers": 15,
+    "explorerUrl": "https://moonscan.io/token/",
+    "marketCap": 151975109757,
+    "volume24h": 21430601562,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 152465516739,
+      "volume24h": 24772063732
+    },
+    "dominance": 3.49
+  },
+  {
+    "id": 57,
+    "tokenPlatformName": "Algorand",
+    "name": "Algorand",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/algorand1539001835369.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.algorand1539001835369.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.algorand1539001835369.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.algorand1539001835369.png"
+    },
+    "slug": "algorand",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.02,
+      "14D": 0.01,
+      "MTD": 0.03,
+      "30D": 0.09,
+      "3M": 0.02,
+      "6M": 0.08,
+      "1Y": 0,
+      "3Y": 0.09,
+      "YTD": -0.01,
+      "CUSTOM": null
+    },
+    "gainers": 8,
+    "losers": 6,
+    "explorerUrl": "https://algoexplorer.io/asset/",
+    "marketCap": 111171855414,
+    "volume24h": 14721913743,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 111057728666,
+      "volume24h": 16531091011
+    },
+    "dominance": 2.55
+  },
+  {
+    "id": 60,
+    "tokenPlatformName": "Ubiq",
+    "name": "Ubiq",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ubiq1524754679108.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ubiq1524754679108.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ubiq1524754679108.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ubiq1524754679108.png"
+    },
+    "slug": "ubiq",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.49,
+      "7D": null,
+      "14D": 17.84,
+      "MTD": 56.04,
+      "30D": 146.22,
+      "3M": 50.8,
+      "6M": -24.51,
+      "1Y": 52.51,
+      "3Y": -70.98,
+      "YTD": -66.02,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://ubiqscan.io/address/",
+    "marketCap": 141294,
+    "volume24h": 26,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 142095,
+      "volume24h": 121
+    },
+    "dominance": 0
+  },
+  {
+    "id": 64,
+    "tokenPlatformName": "INT Chain",
+    "name": "INT Chain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/internet-node-token1524753829711.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.internet-node-token1524753829711.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.internet-node-token1524753829711.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.internet-node-token1524753829711.png"
+    },
+    "slug": "internet-node-token",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.68,
+      "7D": -1.55,
+      "14D": 1.13,
+      "MTD": 2.47,
+      "30D": -1.9,
+      "3M": -6.78,
+      "6M": -2.79,
+      "1Y": -24.8,
+      "3Y": -98.84,
+      "YTD": -22.49,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 0,
+    "explorerUrl": "https://nodescan.io/address/",
+    "marketCap": 50122,
+    "volume24h": 96359,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 49709,
+      "volume24h": 90457
+    },
+    "dominance": 0
+  },
+  {
+    "id": 69,
+    "tokenPlatformName": "Waves",
+    "name": "Waves",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/waves1524753546305.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.waves1524753546305.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.waves1524753546305.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.waves1524753546305.png"
+    },
+    "slug": "waves",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.05,
+      "7D": -20.91,
+      "14D": -25.44,
+      "MTD": -26.32,
+      "30D": -27.64,
+      "3M": -30.11,
+      "6M": -34.95,
+      "1Y": -36.3,
+      "3Y": null,
+      "YTD": -36.55,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 3,
+    "explorerUrl": "https://wavesexplorer.com/assets/",
+    "marketCap": 76006256,
+    "volume24h": 57137,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 77506165,
+      "volume24h": 117642
+    },
+    "dominance": 0
+  },
+  {
+    "id": 72,
+    "tokenPlatformName": "WAX",
+    "name": "WAX",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/wax1645524558076.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.wax1645524558076.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.wax1645524558076.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.wax1645524558076.png"
+    },
+    "slug": "wax",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -3.3,
+      "7D": 0.86,
+      "14D": -2.65,
+      "MTD": -1.35,
+      "30D": -3.2,
+      "3M": -31.5,
+      "6M": -31.02,
+      "1Y": -93.07,
+      "3Y": null,
+      "YTD": -92.76,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 1,
+    "explorerUrl": "https://wax.bloks.io/account/",
+    "marketCap": 40405935,
+    "volume24h": 6918409,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 41915012,
+      "volume24h": 16311504
+    },
+    "dominance": 0
+  },
+  {
+    "id": 76,
+    "tokenPlatformName": "Zilliqa",
+    "name": "Zilliqa",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/zilliqa1524754930008.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.zilliqa1524754930008.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.zilliqa1524754930008.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.zilliqa1524754930008.png"
+    },
+    "slug": "zilliqa",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.01,
+      "14D": 0.01,
+      "MTD": 0.03,
+      "30D": 0.11,
+      "3M": 0.02,
+      "6M": 0.11,
+      "1Y": -0.06,
+      "3Y": 0.22,
+      "YTD": -0.07,
+      "CUSTOM": null
+    },
+    "gainers": 4,
+    "losers": 4,
+    "explorerUrl": "https://viewblock.io/zilliqa/address/",
+    "marketCap": 66095900370,
+    "volume24h": 14077603576,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 66123727933,
+      "volume24h": 15615214496
+    },
+    "dominance": 1.52
+  },
+  {
+    "id": 77,
+    "tokenPlatformName": "Ethereum Classic",
+    "name": "Ethereum Classic",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ethereum-classic1524753357045.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ethereum-classic1524753357045.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ethereum-classic1524753357045.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ethereum-classic1524753357045.png"
+    },
+    "slug": "ethereum-classic",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://blockscout.com/etc/mainnet/token/",
+    "marketCap": 0,
+    "volume24h": 170200,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 0,
+      "volume24h": 176582
+    },
+    "dominance": 0
+  },
+  {
+    "id": 78,
+    "tokenPlatformName": "XDAI",
+    "name": "XDAI",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/xdai1644393963620.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.xdai1644393963620.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.xdai1644393963620.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.xdai1644393963620.png"
+    },
+    "slug": "xdaistable",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.08,
+      "7D": 0.13,
+      "14D": 0.23,
+      "MTD": 0.28,
+      "30D": 0.16,
+      "3M": -0.39,
+      "6M": 1.73,
+      "1Y": -4.84,
+      "3Y": 7.78,
+      "YTD": -4.97,
+      "CUSTOM": null
+    },
+    "gainers": 7,
+    "losers": 16,
+    "explorerUrl": "https://blockscout.com/xdai/mainnet/token/",
+    "marketCap": 126138944717,
+    "volume24h": 15707698888,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 126228283857,
+      "volume24h": 17756861477
+    },
+    "dominance": 2.9
+  },
+  {
+    "id": 80,
+    "tokenPlatformName": "Songbird",
+    "name": "Songbird",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/songbird1639985164988.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.songbird1639985164988.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.songbird1639985164988.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.songbird1639985164988.png"
+    },
+    "slug": "songbird",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 3,
+    "explorerUrl": "https://songbird-explorer.flare.network/token/",
+    "marketCap": 0,
+    "volume24h": 1605886,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 0,
+      "volume24h": 2010204
+    },
+    "dominance": 0
+  },
+  {
+    "id": 82,
+    "tokenPlatformName": "RSK",
+    "name": "RSK",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/rsk1660210930311.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.rsk1660210930311.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.rsk1660210930311.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.rsk1660210930311.png"
+    },
+    "slug": "rsk",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.01,
+      "14D": 0.01,
+      "MTD": 0.03,
+      "30D": 0.12,
+      "3M": 0.01,
+      "6M": 0.13,
+      "1Y": -0.03,
+      "3Y": 0.21,
+      "YTD": -0.03,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 1,
+    "explorerUrl": "https://explorer.rsk.co/address/",
+    "marketCap": 65987847724,
+    "volume24h": 13334828315,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 65966293110,
+      "volume24h": 14725918162
+    },
+    "dominance": 1.51
+  },
+  {
+    "id": 39,
+    "tokenPlatformName": "Conflux Network",
+    "name": "Conflux Network",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/conflux network1637054814606.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.conflux network1637054814606.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.conflux network1637054814606.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.conflux network1637054814606.png"
+    },
+    "slug": "conflux-network",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": null,
+      "7D": null,
+      "14D": null,
+      "MTD": null,
+      "30D": null,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 0,
+    "explorerUrl": "https://evm.confluxscan.io/token/",
+    "marketCap": 0,
+    "volume24h": 2341,
+    "yesterday": {
+      "time": 1671037200000,
+      "marketCap": 0,
+      "volume24h": 19
+    },
+    "dominance": 0
+  },
+  {
+    "id": 47,
+    "tokenPlatformName": "Fuse Network",
+    "name": "Fuse Network",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/fuse network token1617981379298.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.fuse network token1617981379298.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.fuse network token1617981379298.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.fuse network token1617981379298.png"
+    },
+    "slug": "fuse-network",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.01,
+      "7D": 0.04,
+      "14D": 0.02,
+      "MTD": 0.06,
+      "30D": 0.07,
+      "3M": 0.11,
+      "6M": 0.11,
+      "1Y": -0.3,
+      "3Y": -0.05,
+      "YTD": -0.36,
+      "CUSTOM": null
+    },
+    "gainers": 2,
+    "losers": 2,
+    "explorerUrl": "https://explorer.fuse.io/token/",
+    "marketCap": 45369252633,
+    "volume24h": 2115521992,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 45285545743,
+      "volume24h": 2692665418
+    },
+    "dominance": 1.04
+  },
+  {
+    "id": 56,
+    "tokenPlatformName": "VeChain",
+    "name": "VeChain",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/vechainthor1532533151809.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.vechainthor1532533151809.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.vechainthor1532533151809.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.vechainthor1532533151809.png"
+    },
+    "slug": "vechainthor",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1,
+      "7D": 0.9,
+      "14D": 0.74,
+      "MTD": 0.97,
+      "30D": -1.36,
+      "3M": -26.45,
+      "6M": -24.4,
+      "1Y": -82.5,
+      "3Y": 111.8,
+      "YTD": -83.96,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 4,
+    "explorerUrl": "https://vechainstats.com/account/",
+    "marketCap": 77820983,
+    "volume24h": 1259575,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 78893312,
+      "volume24h": 1381434
+    },
+    "dominance": 0
+  },
+  {
+    "id": 66,
+    "tokenPlatformName": "Stellar",
+    "name": "Stellar",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/stellar1645006520371.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.stellar1645006520371.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.stellar1645006520371.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.stellar1645006520371.png"
+    },
+    "slug": "stellar",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.12,
+      "7D": -1.89,
+      "14D": -8.33,
+      "MTD": -8.81,
+      "30D": -11.67,
+      "3M": -29.95,
+      "6M": -59.92,
+      "1Y": -47.02,
+      "3Y": 3.6,
+      "YTD": -47.82,
+      "CUSTOM": null
+    },
+    "gainers": 8,
+    "losers": 4,
+    "explorerUrl": "https://stellar.expert/explorer/public/asset/",
+    "marketCap": 31036684,
+    "volume24h": 23914280,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 31123646,
+      "volume24h": 23497827
+    },
+    "dominance": 0
+  },
+  {
+    "id": 75,
+    "tokenPlatformName": "Cronos",
+    "name": "Cronos",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/crypto-com-chain1544821574392.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.crypto-com-chain1544821574392.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.crypto-com-chain1544821574392.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.crypto-com-chain1544821574392.png"
+    },
+    "slug": "crypto-com-cro",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.25,
+      "7D": -0.07,
+      "14D": -0.39,
+      "MTD": -0.32,
+      "30D": -0.81,
+      "3M": -3.37,
+      "6M": -1.81,
+      "1Y": -8.01,
+      "3Y": 61.06,
+      "YTD": -8.25,
+      "CUSTOM": null
+    },
+    "gainers": 7,
+    "losers": 29,
+    "explorerUrl": "https://cronos.org/explorer/token/",
+    "marketCap": 152320966215,
+    "volume24h": 21209677923,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 153236058215,
+      "volume24h": 24455640841
+    },
+    "dominance": 3.5
+  },
+  {
+    "id": 79,
+    "tokenPlatformName": "Chiliz",
+    "name": "Chiliz",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/chiliz1595954176352.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.chiliz1595954176352.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.chiliz1595954176352.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.chiliz1595954176352.png"
+    },
+    "slug": "chiliz",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 6.13,
+      "7D": 12.78,
+      "14D": 4.32,
+      "MTD": 3.3,
+      "30D": -7.24,
+      "3M": -30.77,
+      "6M": 0.05,
+      "1Y": -57.17,
+      "3Y": null,
+      "YTD": -57.75,
+      "CUSTOM": null
+    },
+    "gainers": 19,
+    "losers": 4,
+    "explorerUrl": "https://explorer.chiliz.com/tokens/",
+    "marketCap": 150201477,
+    "volume24h": 94810160,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 139106917,
+      "volume24h": 41246364
+    },
+    "dominance": 0
+  },
+  {
+    "id": 83,
+    "tokenPlatformName": "Cardano",
+    "name": "Cardano",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/cardano1524754132195.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.cardano1524754132195.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.cardano1524754132195.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.cardano1524754132195.png"
+    },
+    "slug": "cardano",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.21,
+      "7D": -0.1,
+      "14D": -0.2,
+      "MTD": -0.14,
+      "30D": -0.73,
+      "3M": -3.32,
+      "6M": -3.03,
+      "1Y": -8.17,
+      "3Y": 59.4,
+      "YTD": -8.24,
+      "CUSTOM": null
+    },
+    "gainers": 9,
+    "losers": 15,
+    "explorerUrl": "https://cardanoscan.io/token/",
+    "marketCap": 144541520296,
+    "volume24h": 21074504039,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 145032625807,
+      "volume24h": 24304189529
+    },
+    "dominance": 3.32
+  },
+  {
+    "id": 84,
+    "tokenPlatformName": "Optimism",
+    "name": "Optimism",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/optimism1648542210138.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.optimism1648542210138.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.optimism1648542210138.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.optimism1648542210138.png"
+    },
+    "slug": "optimism",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.43,
+      "7D": -1.27,
+      "14D": -3.21,
+      "MTD": -2.38,
+      "30D": 1.85,
+      "3M": -5.64,
+      "6M": 5.76,
+      "1Y": -27.27,
+      "3Y": 90.9,
+      "YTD": -28.22,
+      "CUSTOM": null
+    },
+    "gainers": 3,
+    "losers": 12,
+    "explorerUrl": "https://optimistic.etherscan.io/token/",
+    "marketCap": 10698379608,
+    "volume24h": 317107078,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 10924459830,
+      "volume24h": 463664294
+    },
+    "dominance": 0.25
+  },
+  {
+    "id": 89,
+    "tokenPlatformName": "Arbitrum Nova",
+    "name": "Arbitrum Nova",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/arbitrum_nova1663578999512.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.arbitrum_nova1663578999512.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.arbitrum_nova1663578999512.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.arbitrum_nova1663578999512.png"
+    },
+    "slug": "arbitrum-nova",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.75,
+      "7D": -2.69,
+      "14D": -8.26,
+      "MTD": -15.97,
+      "30D": 17.49,
+      "3M": -26.62,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 0,
+    "losers": 1,
+    "explorerUrl": "https://nova-explorer.arbitrum.io/address/",
+    "marketCap": 9569813,
+    "volume24h": 55194,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 9383243,
+      "volume24h": 54164
+    },
+    "dominance": 0
+  },
+  {
+    "id": 90,
+    "tokenPlatformName": "Astar",
+    "name": "Astar",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/astar_network1665663195360.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.astar_network1665663195360.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.astar_network1665663195360.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.astar_network1665663195360.png"
+    },
+    "slug": "astar",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 0.04,
+      "7D": 0.02,
+      "14D": 0,
+      "MTD": 0.03,
+      "30D": 0.07,
+      "3M": 0.02,
+      "6M": 0.07,
+      "1Y": 0.01,
+      "3Y": 0.08,
+      "YTD": -0.01,
+      "CUSTOM": null
+    },
+    "gainers": 6,
+    "losers": 3,
+    "explorerUrl": "https://astar.subscan.io/account/",
+    "marketCap": 134920757613,
+    "volume24h": 20122529855,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 135104249330,
+      "volume24h": 23146212622
+    },
+    "dominance": 3.1
+  },
+  {
+    "id": 88,
+    "tokenPlatformName": "EthereumPoW",
+    "name": "EthereumPoW",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/ethereum_po_w1666000293992.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.ethereum_po_w1666000293992.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.ethereum_po_w1666000293992.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.ethereum_po_w1666000293992.png"
+    },
+    "slug": "ethereum-pow",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": 6.63,
+      "7D": -35.89,
+      "14D": -34.25,
+      "MTD": -32.37,
+      "30D": -59.75,
+      "3M": null,
+      "6M": null,
+      "1Y": null,
+      "3Y": null,
+      "YTD": null,
+      "CUSTOM": null
+    },
+    "gainers": 1,
+    "losers": 0,
+    "explorerUrl": "https://explorer.bitquery.io/ethpow/token/",
+    "marketCap": 5218214,
+    "volume24h": 3158700,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 4900703,
+      "volume24h": 1844921
+    },
+    "dominance": 0
+  },
+  {
+    "id": 4,
+    "tokenPlatformName": "BNB",
+    "name": "BNB",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/binance coin1645029040254.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.binance coin1645029040254.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.binance coin1645029040254.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.binance coin1645029040254.png"
+    },
+    "slug": "bnb",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -1.13,
+      "7D": -0.87,
+      "14D": -1.94,
+      "MTD": -1.85,
+      "30D": -0.76,
+      "3M": -1.4,
+      "6M": 11.38,
+      "1Y": -27.88,
+      "3Y": 561.01,
+      "YTD": -27.4,
+      "CUSTOM": null
+    },
+    "gainers": 542,
+    "losers": 1521,
+    "explorerUrl": "https://bscscan.com/token/",
+    "marketCap": 256999258014,
+    "volume24h": 24976386736,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 260220231452,
+      "volume24h": 28629559965
+    },
+    "dominance": 5.9
+  },
+  {
+    "id": 5,
+    "tokenPlatformName": "Polygon",
+    "name": "Polygon",
+    "images": {
+      "native": "https://img.api.cryptorank.io/coins/polygon1624610763534.png",
+      "icon": "https://img.api.cryptorank.io/coins/icon.polygon1624610763534.png",
+      "x60": "https://img.api.cryptorank.io/coins/60x60.polygon1624610763534.png",
+      "x150": "https://img.api.cryptorank.io/coins/150x150.polygon1624610763534.png"
+    },
+    "slug": "matic-network",
+    "ruName": null,
+    "avgPriceChange": {
+      "24H": -0.4,
+      "7D": 0.06,
+      "14D": -0.37,
+      "MTD": -0.03,
+      "30D": 0.09,
+      "3M": -1.67,
+      "6M": 8.79,
+      "1Y": -12.62,
+      "3Y": 364.41,
+      "YTD": -13.67,
+      "CUSTOM": null
+    },
+    "gainers": 128,
+    "losers": 287,
+    "explorerUrl": "https://polygonscan.com/token/",
+    "marketCap": 172403137139,
+    "volume24h": 21999704500,
+    "yesterday": {
+      "time": 1671008400000,
+      "marketCap": 173271750193,
+      "volume24h": 25400688130
+    },
+    "dominance": 3.96
+  }
+]
