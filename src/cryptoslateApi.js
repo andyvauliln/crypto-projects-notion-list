@@ -9,3 +9,5 @@
 //gemini
 //crypto.com
 //https://www.thehideaways.io/
+//https://simetri.cryptobriefing.com/ratings/?pro=coinmarketcap&coin_id=bitcoin
+//https://tokeninsight.com/en/cryptocurrencies

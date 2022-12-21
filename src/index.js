@@ -1,18 +1,13 @@
 import fs from 'fs/promises';
-import puppeteer from 'puppeteer-core';
 import { languages2 } from '../programming-langs2';
 import { getTokens } from './coinmarketcup';
-import { getNextjsObj, getTokensFromCryptoRank } from "./cryptoRankApi";
+import { getCrowdSalesFromCryptoRank, getIdoPlatforms, getTagsFromCryptoRank, getTokensFromCryptoRank } from "./cryptoRankApi";
 import {
   getGihubRepos,
-  getMarkdownFromRepo,
-  getPackageJsonFromRepo
+  getMarkdownFromRepo, getOpenAIProjects, getPackageJsonFromRepo
 } from './github';
 import LoggerInstance from './loging';
-import {
-  addRepsoitoryToNotion,
-  addTokenToNotion, getLastContentDowloadedTokenId, getLastRepositoryTokenId, getLastTokenId, getNotionTokensWithSites, getNotionTokensWithSourceCode
-} from './notion';
+import { addAIProjectToNotion, addCoinmarketcupTokenToNotion, addFundToNotion, addIDOtoNotion, addRepsoitoryToNotion, getLastContentDowloadedTokenId, getLastRepositoryTokenId, getLastTokenId, getNotionTokensWithSites, getNotionTokensWithSourceCode } from './notion';
 import { getSiteData } from './siteScraper';
 
 
@@ -36,7 +31,7 @@ async function migrateFromCoinmarketCap() {
           tokens[i].id +
           ` (${tokens[i].name} )`
         );
-        await addTokenToNotion(tokens[i]);
+        await addCoinmarketcupTokenToNotion(tokens[i]);
         await LoggerInstance.logInfo(
           'migrateFromCoinmarketCap TOKEN ADDED SUCCESFULY: ' +
           ` (${tokens[i].name} )`
@@ -82,7 +77,7 @@ async function downloadProjectRepositories() {
           );
           const repos = await getGihubRepos(link);
           if (repos && Array.isArray(repos)) {
-            await LoggerInstance.makeReport(repos);
+            await LoggerInstance.makeReportForGitRepository(repos);
             await asyncForEach(repos, async (repo, index) => {
               await LoggerInstance.logInfo(
                 `downloadProjectRepositories TRYING TO SAVE REPO TO NOTION ${repo.name}: \n\n` +
@@ -140,7 +135,7 @@ async function scrapSiteData() {
           resp = await getSiteData(link, tokens[j].properties.Name.title[0].text.content, tokens[j].properties.Id.number);
 
           // if (repos && Array.isArray(repos)) {
-          //   await LoggerInstance.makeReport(repos);
+          //   await LoggerInstance.makeReportForGitRepository(repos);
           //   await asyncForEach(repos, async (repo, index) => {
           //     await LoggerInstance.logInfo(
           //       `scrapSiteData TRYING TO SAVE REPO TO NOTION ${repo.name}: \n\n` +
@@ -170,30 +165,64 @@ async function scrapSiteData() {
 async function migrateFromCryptoRank() {
   try {
     await LoggerInstance.cleanLogs();
+    let fundsMap = {};
+    let idoMap = {};
+    const funds = await getFundsFromCryptoRank();
+    await asyncForEach(funds, async (item) => {
 
+      const pageId = await addFundToNotion(item);
+      fundsMap[item.id] = pageId;
+    });
+    const idoPlatforms = await getIdoPlatforms();
+    await asyncForEach(idoPlatforms, async (item) => {
+
+      const pageId = await addIDOtoNotion(item);
+
+    });
+    const tags = getTagsFromCryptoRank();
+    const crowdsales = getCrowdSalesFromCryptoRank();
     const tokens = getTokensFromCryptoRank();
-    const categories = getCategoriesFromCryptoRank();
-    const tags = getTegs
 
-    const resp = await getNextjsObj("https://cryptorank.io/funds");
-    //LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(Object.keys(resp))}`);
-    const funds = resp.funds.props.pageProps.funds.map(r => {
-      return {
-        name: r.name,
-        slug: r.slug,
-        id: r.id,
-      }
-    })
-    await asyncForEach(funds.slice(0, 1), async (item) => {
-      const fund = await getNextjsObj(`https://cryptorank.io/funds/${item.slug}`);
-      //await addFundToNotion(item);
-    })
-    await LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(funds)}`);
-    resp.browser.close();
+
+
+
+    //const tokensByIdoPlatforms = getTokensByIdoPlatformsFromCryptoRank(108);
+
+    // const resp = await getNextjsObj("https://cryptorank.io/funds");
+    // //LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(Object.keys(resp))}`);
+    // const funds = resp.funds.props.pageProps.funds.map(r => {
+    //   return {
+    //     name: r.name,
+    //     slug: r.slug,
+    //     id: r.id,
+    //   }
+    // })
+    // await asyncForEach(funds.slice(0, 1), async (item) => {
+    //   const fund = await getNextjsObj(`https://cryptorank.io/funds/${item.slug}`);
+    //   //await addFundToNotion(item);
+    // })
+    // await LoggerInstance.logInfo(`migrateFromCryptoRank ${JSON.stringify(funds)}`);
+    // resp.browser.close();
     await LoggerInstance.logInfo('migrateFromCryptoRank DONE');
   } catch (error) {
     await LoggerInstance.logError(
       `migrateFromCryptoRank \n\n ${error.message}, \n\n ${error.stack}`
+    );
+  }
+}
+
+async function getOpenAIprojects() {
+  try {
+    await LoggerInstance.cleanLogs();
+    const projects = await getOpenAIProjects();
+    await LoggerInstance.logInfo('getOpenAIprojects Total AI Projects: ' + projects.length);
+    await asyncForEach(projects, async (item) => {
+      await addAIProjectToNotion(item);
+    });
+    await LoggerInstance.logInfo('getOpenAIprojects DONE');
+  } catch (error) {
+    await LoggerInstance.logError(
+      `getOpenAIprojects \n\n ${error.message}, \n\n ${error.stack}`
     );
   }
 }
@@ -206,8 +235,8 @@ async function migrateFromCryptoRank() {
 // await downloadProjectRepositories();
 // await generateJsonExtentationFile();
 // await scrapSiteData()
-await migrateFromCryptoRank();
-
+// await migrateFromCryptoRank();
+await getOpenAIprojects();
 
 
 

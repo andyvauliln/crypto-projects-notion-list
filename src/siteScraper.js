@@ -10,16 +10,17 @@ dotenv.config();
 
 const { NOTION_API_TOKEN } = process.env;
 
-const browser = await puppeteer.launch({
-    headless: false,
-    timeout: 100000
-});
 
 export const getSiteData = async (link, tokenName, tokenId) => {
     try {
         // if (fs2.existsSync('screenshots')) {
         //     await fs.mkdir("screenshots");
         // }
+        const browser = await puppeteer.launch({
+            headless: false,
+            timeout: 100000
+        });
+
 
         const page = await browser.newPage();
         await page.setViewport({ width: 1920, height: 1080 });

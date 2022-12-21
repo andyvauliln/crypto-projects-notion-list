@@ -42,7 +42,7 @@ export const getFundsFromCryptoRank = async (withSummary = false) => {
   return json
 }
 
-export const getIDOplatformsFromCryptoRank = async (isFull = true) => {
+export const getIdoPlatforms = async (isFull = true) => {
   const json = await axios(`https://api.cryptorank.io/v0/ido-platforms?isFull=${isFull}`)
     .then((response) => response)
     .catch(() => 'error');
@@ -81,10 +81,10 @@ export const getTagsFromCryptoRank = async () => {
 }
 
 
-const browser = await puppeteer.launch({
-  headless: false,
-  timeout: 100000
-});
+// const browser = await puppeteer.launch({
+//   headless: false,
+//   timeout: 100000
+// });
 
 // export const getNextjsObj = async (link) => {
 //   try {
