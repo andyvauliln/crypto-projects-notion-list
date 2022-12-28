@@ -46,4 +46,5 @@ export const getExchanges = async (id) => {
   const json = await axios('https://api.coingecko.com/api/v3/exchanges?per_page=250&page=1')
     .then((response) => response)
     .catch(() => 'error');
-  return jso
+  return json;
+}

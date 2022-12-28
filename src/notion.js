@@ -8,7 +8,9 @@ import { markdownToBlocks } from './notionParserJs/index.js';
 
 dotenv.config();
 
-const { NOTION_API_TOKEN, NOTION_COINMARKETCUP_DATABASE_ID, NOTION_JS_DATABASE_ID, NOTION_OPENAI_DATABASE_ID } =
+const { NOTION_API_TOKEN, NOTION_COINMARKETCUP_DATABASE_ID, NOTION_JS_DATABASE_ID,
+  NOTION_OPENAI_DATABASE_ID, NOTION_OPENAI_CSHARP_DATABASE_ID,
+  NOTION_OPENAI_GO_DATABASE_ID, NOTION_OPENAI_PHYTON_DATABASE_ID } =
   process.env;
 
 const notion = new Client({
@@ -373,28 +375,24 @@ export async function addAIProjectToNotion(repository) {
     //   repository.readme,
     //   repository.name
     // );
-    //console.log(repository, "repository")
     const files = generateNotionFilesBlocks(
       repository.files,
       repository
     );
-    //console.log(files, "files")
     const packageDescription = await generatePackageDesriptionBlocks(
       repository.packageDescr,
       repository.name
     );
-    //console.log(packageDescription, "packageDescription")
 
     const devPackageDescription = await generatePackageDesriptionBlocks(
       repository.devPackagesDescr,
       repository.name,
       "dev"
     );
-    //console.log(devPackageDescription, "devPackageDescription")
 
     notionObj = {
       parent: {
-        database_id: NOTION_OPENAI_DATABASE_ID,
+        database_id: NOTION_OPENAI_PHYTON_DATABASE_ID,
       },
       icon: {
         external: {

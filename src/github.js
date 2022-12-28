@@ -307,35 +307,31 @@ export async function getOpenAIProjects() {
     let repMap = new Map();
     while (resp.incomplete_results && offset <= 10) {
       const resp = await octokit.rest.search.repos({
-        q: `openai+in:file+fork:false+language:javascript+language:typescript`,
+        q: `openai+in:file+fork:false+language:python`,
         page: offset,
         per_page: 100,
         sort: "updated"
       });
-      // if (offset === 10) {
-      //   console.log(resp, "resp");
-      // }
-      //console.log("got page number " + offset, resp.status);
+
       resp.data.items.forEach((item) => {
-        //console.log(item.full_name, "item full name");
         if (!repMap.has(item.full_name)) {
           repMap.set(item.full_name, item);
         }
       });
       offset++;
     }
+    console.log('finished getting repo', 'data');
+
     await asyncForEachMap(repMap, async function (key, item) {
       await LoggerInstance.logInfo(
         `getOpenAIProjects - Getting Repo: ${item.html_url}`
       );
 
-      const packages = await getPackageJsonFromRepo(item.html_url);
-      if (packages && packages.dependencies && packages.dependencies["openai"]) {
+      // const packages = await getPackageJsonFromRepo(item.html_url);
+      // if (packages && packages.dependencies && packages.dependencies["openai"]) {
 
 
-        const owner = item.html_url.split('/')[3];
-        //console.log(owner, "owner");
-        //const readme = await getMarkdownFromRepo(item.html_url);
+      const owner = item.html_url.split('/')[3];
         const filesData = await getGithubRepoFiles(
           owner,
           item.name,
@@ -344,14 +340,14 @@ export async function getOpenAIProjects() {
 
         const languages = await getRepositoryLanguages(owner, item.name);
 
-        const descr = parsePackageJson(packages, 'description');
-        const projectPackages = parsePackageJson(packages, 'dependencies');
-        const devPackages = parsePackageJson(packages, 'devDependencies');
-        const keywords = parsePackageJson(packages, 'keywords');
-        const license = parsePackageJson(packages, 'license');
-        //console.log(owner, "owner2");
+      const descr = "";// parsePackageJson(packages, 'description');
+      const projectPackages = null;// parsePackageJson(packages, 'dependencies');
+      const devPackages = null;//parsePackageJson(packages, 'devDependencies');
+      const keywords = null; //parsePackageJson(packages, 'keywords');
+      const license = null; //parsePackageJson(packages, 'license');
+
         const repo = {
-          version: packages.dependencies["openai"],
+          version: "",//packages.dependencies["openai"],
           name: item.name,
           language: item.language || languages[0] || "",
           languages: languages.length > 0 ? languages : item.language ? [item.language] : [],
@@ -381,7 +377,7 @@ export async function getOpenAIProjects() {
         if (repo) {
           repos.push(repo);
         }
-      };
+      // };
     });
     return repos;
   } catch (error) {
