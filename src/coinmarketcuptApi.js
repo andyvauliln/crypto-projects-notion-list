@@ -14,7 +14,7 @@ export default class CoinMarketCap {
    *
    */
   constructor(apiKey, { version = 'v1', config = {} } = {}) {
-    this.apiKey = '5eea9bc2-0439-4ec3-a22f-012d33c6346a';
+    this.apiKey = '';
     this.config = Object.assign(
       {},
       {
